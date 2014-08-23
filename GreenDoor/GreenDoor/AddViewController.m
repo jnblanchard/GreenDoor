@@ -18,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *descriptionTextField;
 @property BOOL validItem;
 @property BOOL validAmount;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property BOOL validDescription;
 @end
 
@@ -62,7 +63,25 @@
 
 - (IBAction)addItemAndAmount:(id)sender
 {
-    
+    if(self.validAmount && self.validDescription && self.validItem)
+    {
+
+        PFObject* aReport = [PFObject objectWithClassName:@"Report"];
+        aReport[@"itemName"] = self.itemTextField.text;
+        aReport[@"description"] = self.descriptionTextField.text;
+        aReport[@"amount"] = self.amountTextField.text;
+        aReport[@"type"] = [self.typeSegmentedControl titleForSegmentAtIndex:self.typeSegmentedControl.selectedSegmentIndex];
+        aReport[@"rate"] = [self.rateSegmentedControl titleForSegmentAtIndex:self.rateSegmentedControl.selectedSegmentIndex];
+        [aReport setObject:self.theUser forKey:@"user"];
+        [aReport saveEventually:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                
+            }
+        }];
+    } else {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Missing report information..." message:@"Please enter valid entries for every component of the report." delegate:self cancelButtonTitle:@"Done" otherButtonTitles: nil];
+        [alert show];
+    }
 }
 
 @end
