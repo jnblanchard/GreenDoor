@@ -32,12 +32,12 @@
     self.validItem = NO;
     self.validDescription = NO;
 }
+
 - (IBAction)incomeButton:(id)sender
 {
-
+    self.amountTextField.backgroundColor = [UIColor greenColor];
+    self.amountTextField.textColor = [UIColor whiteColor];
 }
-
-
 
 - (IBAction)expenseButton:(id)sender
 {
@@ -55,16 +55,13 @@
 {
     if ([sender isEqual:self.itemTextField] && ![sender.text isEqualToString:@""]) {
         self.validItem = YES;
-        NSLog(@"here1");
     }
     if ([sender isEqual:self.amountTextField] && ![sender.text isEqualToString:@""]) {
         self.validAmount = YES;
-        NSLog(@"here2");
     }
     if ([sender isEqual:self.self.descriptionTextField] && ![sender.text isEqualToString:@""]) {
         self.validDescription = YES;
         self.datePicker.hidden = NO;
-        NSLog(@"here3");
     }
     [sender resignFirstResponder];
 }
@@ -83,10 +80,14 @@
         [aReport setObject:self.theUser forKey:@"user"];
         [aReport saveEventually:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
+                self.rateSegmentedControl.selectedSegmentIndex = 0;
+                self.typeSegmentedControl.selectedSegmentIndex = 0;
                 self.validItem = NO;
                 self.itemTextField.text = @"";
                 self.validAmount = NO;
                 self.amountTextField.text = @"";
+                self.amountTextField.backgroundColor = [UIColor whiteColor];
+                self.amountTextField.textColor = [UIColor blackColor];
                 self.validDescription = NO;
                 self.descriptionTextField.text = @"";
             }

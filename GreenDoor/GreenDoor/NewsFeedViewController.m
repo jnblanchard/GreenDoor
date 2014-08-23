@@ -14,19 +14,10 @@
 
 @interface NewsFeedViewController () <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-
+@property NSArray* reports;
 @end
 
 @implementation NewsFeedViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -41,18 +32,31 @@
     if (![PFUser currentUser]) {
         NSLog(@"entro");
         [self showLogin];
+    } else {
+        PFQuery* query = [PFQuery queryWithClassName:@"Report"];
+        [query whereKey:@"user" equalTo:[PFUser currentUser]];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                self.reports = objects;
+            }
+            [self.tableView reloadData];
+        }];
+
     }
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.reports.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    PFObject* report = [self.reports objectAtIndex:indexPath.row];
+    cell.textLabel.text = report[@"itemName"];
+    cell.detailTextLabel.text = report[@"amount"];
     return cell;
 }
 
