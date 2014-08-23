@@ -41,6 +41,8 @@
 		4285944319A914C800F7C74F /* PDTSimpleCalendarViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285943E19A914C800F7C74F /* PDTSimpleCalendarViewFlowLayout.m */; };
 		4285944419A914C800F7C74F /* PDTSimpleCalendarViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285944019A914C800F7C74F /* PDTSimpleCalendarViewHeader.m */; };
 		4285944719A9196600F7C74F /* TheCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285944619A9196600F7C74F /* TheCalendarViewController.m */; };
+		4285944A19A93B3500F7C74F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285944919A93B3500F7C74F /* MapViewController.m */; };
+		4285944D19A93B9600F7C74F /* BankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285944C19A93B9600F7C74F /* BankViewController.m */; };
 		E486168819A8FDBE008F08EC /* NewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168719A8FDBE008F08EC /* NewsFeedViewController.m */; };
 		E486168B19A8FE11008F08EC /* CalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168A19A8FE11008F08EC /* CalenderViewController.m */; };
 		E486168E19A9032D008F08EC /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168D19A9032D008F08EC /* AddViewController.m */; };
@@ -105,6 +107,10 @@
 		4285944019A914C800F7C74F /* PDTSimpleCalendarViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDTSimpleCalendarViewHeader.m; sourceTree = "<group>"; };
 		4285944519A9196600F7C74F /* TheCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheCalendarViewController.h; sourceTree = "<group>"; };
 		4285944619A9196600F7C74F /* TheCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheCalendarViewController.m; sourceTree = "<group>"; };
+		4285944819A93B3500F7C74F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		4285944919A93B3500F7C74F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		4285944B19A93B9600F7C74F /* BankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankViewController.h; sourceTree = "<group>"; };
+		4285944C19A93B9600F7C74F /* BankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankViewController.m; sourceTree = "<group>"; };
 		E486168619A8FDBE008F08EC /* NewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedViewController.h; sourceTree = "<group>"; };
 		E486168719A8FDBE008F08EC /* NewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedViewController.m; sourceTree = "<group>"; };
 		E486168919A8FE11008F08EC /* CalenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderViewController.h; sourceTree = "<group>"; };
@@ -216,6 +222,10 @@
 				0BF1BE4619A8E5FE000ABA27 /* Supporting Files */,
 				4285944519A9196600F7C74F /* TheCalendarViewController.h */,
 				4285944619A9196600F7C74F /* TheCalendarViewController.m */,
+				4285944819A93B3500F7C74F /* MapViewController.h */,
+				4285944919A93B3500F7C74F /* MapViewController.m */,
+				4285944B19A93B9600F7C74F /* BankViewController.h */,
+				4285944C19A93B9600F7C74F /* BankViewController.m */,
 			);
 			path = GreenDoor;
 			sourceTree = "<group>";
@@ -372,8 +382,10 @@
 				4285944719A9196600F7C74F /* TheCalendarViewController.m in Sources */,
 				4285944319A914C800F7C74F /* PDTSimpleCalendarViewFlowLayout.m in Sources */,
 				0BB956E619A90ED1003478D0 /* LoginViewController.m in Sources */,
+				4285944D19A93B9600F7C74F /* BankViewController.m in Sources */,
 				0B626B2119A92AC7006C81F9 /* EditReportViewController.m in Sources */,
 				0BF1BE4C19A8E5FE000ABA27 /* main.m in Sources */,
+				4285944A19A93B3500F7C74F /* MapViewController.m in Sources */,
 				0BB956E919A90EEE003478D0 /* SignupViewController.m in Sources */,
 				E486168819A8FDBE008F08EC /* NewsFeedViewController.m in Sources */,
 			);
