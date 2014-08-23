@@ -39,6 +39,7 @@
 		4285944219A914C800F7C74F /* PDTSimpleCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285943C19A914C800F7C74F /* PDTSimpleCalendarViewController.m */; };
 		4285944319A914C800F7C74F /* PDTSimpleCalendarViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285943E19A914C800F7C74F /* PDTSimpleCalendarViewFlowLayout.m */; };
 		4285944419A914C800F7C74F /* PDTSimpleCalendarViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285944019A914C800F7C74F /* PDTSimpleCalendarViewHeader.m */; };
+		4285944719A9196600F7C74F /* TheCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285944619A9196600F7C74F /* TheCalendarViewController.m */; };
 		E486168819A8FDBE008F08EC /* NewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168719A8FDBE008F08EC /* NewsFeedViewController.m */; };
 		E486168B19A8FE11008F08EC /* CalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168A19A8FE11008F08EC /* CalenderViewController.m */; };
 		E486168E19A9032D008F08EC /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168D19A9032D008F08EC /* AddViewController.m */; };
@@ -99,6 +100,8 @@
 		4285943E19A914C800F7C74F /* PDTSimpleCalendarViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDTSimpleCalendarViewFlowLayout.m; sourceTree = "<group>"; };
 		4285943F19A914C800F7C74F /* PDTSimpleCalendarViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDTSimpleCalendarViewHeader.h; sourceTree = "<group>"; };
 		4285944019A914C800F7C74F /* PDTSimpleCalendarViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDTSimpleCalendarViewHeader.m; sourceTree = "<group>"; };
+		4285944519A9196600F7C74F /* TheCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheCalendarViewController.h; sourceTree = "<group>"; };
+		4285944619A9196600F7C74F /* TheCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheCalendarViewController.m; sourceTree = "<group>"; };
 		E486168619A8FDBE008F08EC /* NewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedViewController.h; sourceTree = "<group>"; };
 		E486168719A8FDBE008F08EC /* NewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedViewController.m; sourceTree = "<group>"; };
 		E486168919A8FE11008F08EC /* CalenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderViewController.h; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				0BB956E819A90EEE003478D0 /* SignupViewController.m */,
 				0BF1BE5719A8E5FE000ABA27 /* Images.xcassets */,
 				0BF1BE4619A8E5FE000ABA27 /* Supporting Files */,
+				4285944519A9196600F7C74F /* TheCalendarViewController.h */,
+				4285944619A9196600F7C74F /* TheCalendarViewController.m */,
 			);
 			path = GreenDoor;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 				E486168E19A9032D008F08EC /* AddViewController.m in Sources */,
 				0BF1BE5019A8E5FE000ABA27 /* AppDelegate.m in Sources */,
 				4285944219A914C800F7C74F /* PDTSimpleCalendarViewController.m in Sources */,
+				4285944719A9196600F7C74F /* TheCalendarViewController.m in Sources */,
 				4285944319A914C800F7C74F /* PDTSimpleCalendarViewFlowLayout.m in Sources */,
 				0BB956E619A90ED1003478D0 /* LoginViewController.m in Sources */,
 				0BF1BE4C19A8E5FE000ABA27 /* main.m in Sources */,

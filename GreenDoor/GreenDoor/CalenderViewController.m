@@ -13,6 +13,7 @@
 #import "PDTSimpleCalendarViewHeader.h"
 
 @interface CalenderViewController () <PDTSimpleCalendarViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UIView *container;
 @property (nonatomic, strong) NSArray *customDates;
 @end
 
