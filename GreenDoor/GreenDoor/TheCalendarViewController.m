@@ -31,6 +31,15 @@
     [self getReports];
     [self showCalendar];
 
+//    NSDate *date = [NSDate date];
+//    NSCalendar *calendar = [NSCalendar currentCalendar];
+//    NSInteger comps = (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit);
+//
+//    NSDateComponents *dateComponents = [calendar components:comps
+//                                                   fromDate: date];
+//    NSDate *finalDate = [calendar dateFromComponents:dateComponents];
+//    NSLog(@"FINAL DATE %@",finalDate);
+
     // Do any additional setup after loading the view.
 }
 
@@ -38,7 +47,6 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Report"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSLog(@"entro! %@",objects);
         self.reportsArray = objects;
         [self.collectionView reloadData];
         
@@ -71,6 +79,15 @@
 
 - (void)simpleCalendarViewController:(PDTSimpleCalendarViewController *)controller didSelectDate:(NSDate *)date
 {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSInteger comps = (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit);
+
+    NSDateComponents *dateComponents = [calendar components:comps
+                                                   fromDate: date];
+
+    NSDate *date1 = [calendar dateFromComponents:dateComponents];
+
+    [self.delegateCalendar theCalendarProtocol:self didSelectDateWithReports:date1];
     NSLog(@"Date Selected : %@",date);
 }
 
@@ -94,7 +111,6 @@
 
         NSDate *date1 = [calendar dateFromComponents:dateComponents];
         NSDate *date2 = [calendar dateFromComponents:dateReportComponents];
-        NSLog(@"ENTRO");
         NSComparisonResult result = [date1 compare:date2];
         if (result == NSOrderedAscending) {
         } else if (result == NSOrderedDescending) {

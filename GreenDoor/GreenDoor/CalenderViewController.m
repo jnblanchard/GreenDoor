@@ -7,13 +7,13 @@
 //
 
 #import "CalenderViewController.h"
-#import "PDTSimpleCalendar.h"
-#import "PDTSimpleCalendarViewController.h"
-#import "PDTSimpleCalendarViewCell.h"
-#import "PDTSimpleCalendarViewHeader.h"
+#import "TheCalendarViewController.h"
+#import <Parse/Parse.h>
 
-@interface CalenderViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface CalenderViewController () <UITableViewDelegate, UITableViewDataSource, TheCalendarProtocol>
 @property (weak, nonatomic) IBOutlet UIView *container;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property NSArray *reportsArray;
 @end
 
 @implementation CalenderViewController
@@ -22,19 +22,41 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    for (UIViewController* vc in self.childViewControllers) {
+        if ([vc isKindOfClass:[TheCalendarViewController class]]) {
+            // do something here
+            TheCalendarViewController *tvc = (TheCalendarViewController *)vc;
+            tvc.delegateCalendar = self;
+        }
+    }
     // Do any additional setup after loading the view.
+}
+
+- (void)theCalendarProtocol:(TheCalendarViewController *)vc didSelectDateWithReports:(NSDate *)date
+{
+    NSLog(@"date %@",date);
+    PFQuery *query = [PFQuery queryWithClassName:@"Report"];
+    [query whereKey:@"date" equalTo:date];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSLog(@"OBJECTS %@", objects);
+        self.reportsArray = objects;
+        [self.tableView reloadData];
+    }];
+
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    PFObject *report = [self.reportsArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [report objectForKey:@"itemName"];
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.reportsArray.count;
 }
 
 
