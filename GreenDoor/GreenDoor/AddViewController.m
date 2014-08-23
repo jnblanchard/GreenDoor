@@ -20,6 +20,7 @@
 @property BOOL validAmount;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property BOOL validDescription;
+@property BOOL validDate;
 @end
 
 @implementation AddViewController
@@ -31,6 +32,7 @@
     self.validAmount = NO;
     self.validItem = NO;
     self.validDescription = NO;
+    self.validDate = NO;
 }
 - (IBAction)incomeButton:(id)sender
 {
@@ -39,7 +41,7 @@
 
 - (IBAction)dateChosen:(UIDatePicker *)sender
 {
-    
+    self.validDate = YES;
 }
 
 - (IBAction)expenseButton:(id)sender
@@ -62,21 +64,22 @@
     }
     if ([sender isEqual:self.self.descriptionTextField] && ![sender.text isEqualToString:@""]) {
         self.validDescription = YES;
+        self.datePicker.hidden = NO;
     }
     [sender resignFirstResponder];
 }
 
 - (IBAction)addItemAndAmount:(id)sender
 {
-    if(self.validAmount && self.validDescription && self.validItem)
+    if(self.validAmount && self.validDescription && self.validItem && self.validDate)
     {
-
         PFObject* aReport = [PFObject objectWithClassName:@"Report"];
         aReport[@"itemName"] = self.itemTextField.text;
         aReport[@"description"] = self.descriptionTextField.text;
         aReport[@"amount"] = self.amountTextField.text;
         aReport[@"type"] = [self.typeSegmentedControl titleForSegmentAtIndex:self.typeSegmentedControl.selectedSegmentIndex];
         aReport[@"rate"] = [self.rateSegmentedControl titleForSegmentAtIndex:self.rateSegmentedControl.selectedSegmentIndex];
+        aReport[@"date"] = [self.datePicker date];
         [aReport setObject:self.theUser forKey:@"user"];
         [aReport saveEventually:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
