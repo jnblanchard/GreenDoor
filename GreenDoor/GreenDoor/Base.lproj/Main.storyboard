@@ -177,6 +177,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="didEndOnExit:" destination="04m-aI-MrC" eventType="editingDidEndOnExit" id="cqH-Re-X1b"/>
+                                    <action selector="didEndOnExit:" destination="04m-aI-MrC" eventType="editingDidEnd" id="i2M-IQ-0w0"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pjg-cX-elf">
@@ -186,6 +187,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="didEndOnExit:" destination="04m-aI-MrC" eventType="editingDidEndOnExit" id="NbA-YO-xfc"/>
+                                    <action selector="didEndOnExit:" destination="04m-aI-MrC" eventType="editingDidEnd" id="Vf9-6Z-ugE"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yOk-TB-6CC">
@@ -195,10 +197,11 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="didEndOnExit:" destination="04m-aI-MrC" eventType="editingDidEndOnExit" id="OlN-Px-yhS"/>
+                                    <action selector="didEndOnExit:" destination="04m-aI-MrC" eventType="editingDidEnd" id="eo8-7k-gBy"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6P1-bK-u1p">
-                                <rect key="frame" x="-38" y="492" width="247" height="30"/>
+                                <rect key="frame" x="-50" y="492" width="247" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -208,7 +211,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vv-Qc-DfT">
-                                <rect key="frame" x="117" y="492" width="247" height="30"/>
+                                <rect key="frame" x="123" y="492" width="247" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Done">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -218,7 +221,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wub-D0-qEo">
-                                <rect key="frame" x="32" y="468" width="107" height="30"/>
+                                <rect key="frame" x="20" y="461" width="107" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.87843143940000001" green="0.22352942819999999" blue="0.25490197539999998" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -231,7 +234,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJu-cx-FAB">
-                                <rect key="frame" x="187" y="461" width="107" height="30"/>
+                                <rect key="frame" x="193" y="461" width="107" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.32549020649999999" green="0.88627457620000005" blue="0.57647061349999995" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -244,7 +247,7 @@
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="mkU-4u-FOJ">
-                                <rect key="frame" x="20" y="278" width="280" height="162"/>
+                                <rect key="frame" x="20" y="260" width="280" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="430506220.25253302">
                                     <!--2014-08-23 17:03:40 +0000-->
@@ -270,9 +273,6 @@ AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                                 </timeZone>
-                                <connections>
-                                    <action selector="dateChosen:" destination="04m-aI-MrC" eventType="editingDidEndOnExit" id="tx5-Cg-xaZ"/>
-                                </connections>
                             </datePicker>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9em-2a-9hA">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
