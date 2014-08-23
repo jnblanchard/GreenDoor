@@ -364,7 +364,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <navigationItem key="navigationItem" id="Yhv-oW-HnC"/>
                     <connections>
                         <outlet property="mapView" destination="naX-dD-Xb6" id="3ar-tZ-U8N"/>
-                        <segue destination="tWy-bk-SKZ" kind="push" id="5rE-LJ-6tv"/>
+                        <segue destination="tWy-bk-SKZ" kind="push" identifier="bank" id="5rE-LJ-6tv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhM-ab-Xu8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -408,10 +408,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-1375" y="1033"/>
         </scene>
-        <!--View Controller - Item-->
+        <!--Graph View Controller - Item-->
         <scene sceneID="wDn-5M-0UI">
             <objects>
-                <viewController id="fK2-Qn-hRD" sceneMemberID="viewController">
+                <viewController id="fK2-Qn-hRD" customClass="GraphViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W1i-p7-xkw"/>
                         <viewControllerLayoutGuide type="bottom" id="Mkf-JE-rHL"/>

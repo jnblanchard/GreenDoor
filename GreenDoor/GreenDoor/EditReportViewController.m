@@ -70,31 +70,31 @@
     [sender resignFirstResponder];
 }
 
--(void)viewDidDisappear:(BOOL)animated
-{
-    if (![self.descriptionTextField.text isEqualToString:@""] && ![self.itemTextField.text isEqualToString:@""] && ![self.amountTextField.text isEqualToString:@""]) {
-        [self.report setObject:self.itemTextField.text forKey:@"itemName"];
-        [self.report setObject:self.descriptionTextField.text forKey:@"description"];
-        [self.report setObject:self.amountTextField.text forKey:@"amount"];
-        [self.report setObject:[self.typeSegmentedControl titleForSegmentAtIndex:self.typeSegmentedControl.selectedSegmentIndex] forKey:@"type"];
-        [self.report setObject:[self.rateSegmentedControl titleForSegmentAtIndex:self.rateSegmentedControl.selectedSegmentIndex] forKey:@"rate"];
-        NSCalendar *calendar = [NSCalendar currentCalendar];
-        NSInteger comps = (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit);
-
-        NSDateComponents *dateComponents = [calendar components:comps
-                                                       fromDate: [self.datePicker date]];
-        NSDate *date1 = [calendar dateFromComponents:dateComponents];
-        [self.report setObject:date1 forKey:@"date"];
-        [self.report saveEventually:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-
-            }
-        }];
-    } else {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Empty Field/s" message:@"Populate all fields" delegate:self cancelButtonTitle:@"Done" otherButtonTitles: nil];
-        [alert show];
-    }
-}
+//-(void)viewDidDisappear:(BOOL)animated
+//{
+//    if (![self.descriptionTextField.text isEqualToString:@""] && ![self.itemTextField.text isEqualToString:@""] && ![self.amountTextField.text isEqualToString:@""]) {
+//        [self.report setObject:self.itemTextField.text forKey:@"itemName"];
+//        [self.report setObject:self.descriptionTextField.text forKey:@"description"];
+//        [self.report setObject:self.amountTextField.text forKey:@"amount"];
+//        [self.report setObject:[self.typeSegmentedControl titleForSegmentAtIndex:self.typeSegmentedControl.selectedSegmentIndex] forKey:@"type"];
+//        [self.report setObject:[self.rateSegmentedControl titleForSegmentAtIndex:self.rateSegmentedControl.selectedSegmentIndex] forKey:@"rate"];
+//        NSCalendar *calendar = [NSCalendar currentCalendar];
+//        NSInteger comps = (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit);
+//
+//        NSDateComponents *dateComponents = [calendar components:comps
+//                                                       fromDate: [self.datePicker date]];
+//        NSDate *date1 = [calendar dateFromComponents:dateComponents];
+//        [self.report setObject:date1 forKey:@"date"];
+//        [self.report saveEventually:^(BOOL succeeded, NSError *error) {
+//            if (succeeded) {
+//
+//            }
+//        }];
+//    } else {
+//        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Empty Field/s" message:@"Populate all fields" delegate:self cancelButtonTitle:@"Done" otherButtonTitles: nil];
+//        [alert show];
+//    }
+//}
 
 - (IBAction)expenseButtonPressed:(id)sender
 {
@@ -142,7 +142,7 @@
         [self.report setObject:date1 forKey:@"date"];
         [self.report saveEventually:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
-                [self performSegueWithIdentifier:self.comingFrom sender:self];
+                [self.navigationController popViewControllerAnimated:YES];
             }
         }];
     } else {
