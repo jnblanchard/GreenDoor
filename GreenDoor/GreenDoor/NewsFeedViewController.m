@@ -9,12 +9,14 @@
 #import "NewsFeedViewController.h"
 #import "LoginViewController.h"
 #import "SignupViewController.h"
+#import "EditReportViewController.h"
 #import <Parse/Parse.h>
 
 
 @interface NewsFeedViewController () <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property NSArray* reports;
+@property PFObject* clickedReport;
 @end
 
 @implementation NewsFeedViewController
@@ -28,6 +30,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    self.navigationController.navigationBarHidden = YES;
     [super viewDidAppear:animated];
     if (![PFUser currentUser]) {
         NSLog(@"entro");
@@ -58,6 +61,20 @@
     cell.textLabel.text = report[@"itemName"];
     cell.detailTextLabel.text = report[@"amount"];
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.clickedReport = [self.reports objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"editReport" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.destinationViewController isKindOfClass:[EditReportViewController class]]) {
+        EditReportViewController* ervc = segue.destinationViewController;
+        ervc.report = self.clickedReport;
+    }
 }
 
 - (void) showLogin

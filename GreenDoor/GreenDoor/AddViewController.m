@@ -36,7 +36,7 @@
 - (IBAction)incomeButton:(id)sender
 {
     if ([self.amountTextField.text hasPrefix:@"-"]) {
-        self.amountTextField.text = [self.amountTextField.text stringByReplacingOccurrencesOfString:@"-" withString:@""];t
+        self.amountTextField.text = [self.amountTextField.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
     }
     self.amountTextField.backgroundColor = [UIColor greenColor];
     self.amountTextField.textColor = [UIColor whiteColor];
