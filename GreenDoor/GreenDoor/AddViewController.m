@@ -35,6 +35,9 @@
 
 - (IBAction)incomeButton:(id)sender
 {
+    if ([self.amountTextField.text hasPrefix:@"-"]) {
+        self.amountTextField.text = [self.amountTextField.text stringByReplacingOccurrencesOfString:@"-" withString:@""];t
+    }
     self.amountTextField.backgroundColor = [UIColor greenColor];
     self.amountTextField.textColor = [UIColor whiteColor];
 }
@@ -45,9 +48,11 @@
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Missing an amount" message:@"Please enter $ amount" delegate:self cancelButtonTitle:@"Done" otherButtonTitles: nil];
         [alert show];
     } else {
-        self.amountTextField.text = [@"-" stringByAppendingString:self.amountTextField.text];
-        self.amountTextField.textColor = [UIColor whiteColor];
-        self.amountTextField.backgroundColor = [UIColor redColor];
+        if (![self.amountTextField.text hasPrefix:@"-"]) {
+            self.amountTextField.text = [@"-" stringByAppendingString:self.amountTextField.text];
+            self.amountTextField.textColor = [UIColor whiteColor];
+            self.amountTextField.backgroundColor = [UIColor redColor];
+        }
     }
 }
 
@@ -76,7 +81,14 @@
         aReport[@"amount"] = self.amountTextField.text;
         aReport[@"type"] = [self.typeSegmentedControl titleForSegmentAtIndex:self.typeSegmentedControl.selectedSegmentIndex];
         aReport[@"rate"] = [self.rateSegmentedControl titleForSegmentAtIndex:self.rateSegmentedControl.selectedSegmentIndex];
-        aReport[@"date"] = [self.datePicker date];
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        NSInteger comps = (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit);
+
+        NSDateComponents *dateComponents = [calendar components:comps
+                                                       fromDate: [self.datePicker date]];
+        NSDate *date1 = [calendar dateFromComponents:dateComponents];
+        NSLog(@"%@", date1);
+        aReport[@"date"] = date1;
         [aReport setObject:self.theUser forKey:@"user"];
         [aReport saveEventually:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
