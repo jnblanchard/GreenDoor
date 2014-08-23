@@ -8,7 +8,7 @@
 
 #import "EditReportViewController.h"
 
-@interface EditReportViewController ()
+@interface EditReportViewController () <UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *typeSegmentedControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *rateSegmentedControl;
 @property (weak, nonatomic) IBOutlet UITextField *amountTextField;
@@ -22,6 +22,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.delegate = self;
     self.navigationController.navigationBarHidden = NO;
     self.amountTextField.text = self.report[@"amount"];
     if ([self.amountTextField.text hasPrefix:@"-"]) {
@@ -66,17 +67,63 @@
 
 - (IBAction)editingDidEnd:(id)sender
 {
-
+    [sender resignFirstResponder];
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    if (![self.descriptionTextField.text isEqualToString:@""] && ![self.itemTextField.text isEqualToString:@""] && ![self.amountTextField.text isEqualToString:@""]) {
+        [self.report setObject:self.itemTextField.text forKey:@"itemName"];
+        [self.report setObject:self.descriptionTextField.text forKey:@"description"];
+        [self.report setObject:self.amountTextField.text forKey:@"amount"];
+        [self.report setObject:[self.typeSegmentedControl titleForSegmentAtIndex:self.typeSegmentedControl.selectedSegmentIndex] forKey:@"type"];
+        [self.report setObject:[self.rateSegmentedControl titleForSegmentAtIndex:self.rateSegmentedControl.selectedSegmentIndex] forKey:@"rate"];
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        NSInteger comps = (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit);
+
+        NSDateComponents *dateComponents = [calendar components:comps
+                                                       fromDate: [self.datePicker date]];
+        NSDate *date1 = [calendar dateFromComponents:dateComponents];
+        [self.report setObject:date1 forKey:@"date"];
+        [self.report saveEventually:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+
+            }
+        }];
+    } else {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Empty Field/s" message:@"Populate all fields" delegate:self cancelButtonTitle:@"Done" otherButtonTitles: nil];
+        [alert show];
+    }
+}
 
 - (IBAction)expenseButtonPressed:(id)sender
 {
+    if ([self.amountTextField.text isEqualToString:@""]) {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Missing an amount" message:@"Please enter $ amount" delegate:self cancelButtonTitle:@"Done" otherButtonTitles: nil];
+        [alert show];
+    } else {
+        if (![self.amountTextField.text hasPrefix:@"-"]) {
+            self.amountTextField.text = [@"-" stringByAppendingString:self.amountTextField.text];
+            self.amountTextField.textColor = [UIColor whiteColor];
+            self.amountTextField.backgroundColor = [UIColor redColor];
+        }
+    }
 }
 
 - (IBAction)incomeButtonPressed:(id)sender
 {
+    if ([self.amountTextField.text isEqualToString:@""]) {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Missing an amount" message:@"Please enter $ amount" delegate:self cancelButtonTitle:@"Done" otherButtonTitles: nil];
+        [alert show];
+    } else {
+        if ([self.amountTextField.text hasPrefix:@"-"]) {
+            self.amountTextField.text = [self.amountTextField.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
+            self.amountTextField.backgroundColor = [UIColor greenColor];
+            self.amountTextField.textColor = [UIColor whiteColor];
+        }
+    }
 }
+
 
 - (IBAction)addButtonPressed:(id)sender
 {
@@ -95,7 +142,7 @@
         [self.report setObject:date1 forKey:@"date"];
         [self.report saveEventually:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
-                [self dismissViewControllerAnimated:YES completion:nil];
+                [self performSegueWithIdentifier:self.comingFrom sender:self];
             }
         }];
     } else {

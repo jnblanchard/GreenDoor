@@ -33,6 +33,11 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
+}
+
 - (void)theCalendarProtocol:(TheCalendarViewController *)vc didSelectDateWithReports:(NSDate *)date
 {
     NSLog(@"date %@",date);
@@ -66,7 +71,7 @@
     if ([segue.identifier isEqualToString:@"editReport"]) {
         EditReportViewController *vc = segue.destinationViewController;
         PFObject *report = [self.reportsArray objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-
+        vc.comingFrom = @"backToCalendar";
         vc.report = report;
     }
 }

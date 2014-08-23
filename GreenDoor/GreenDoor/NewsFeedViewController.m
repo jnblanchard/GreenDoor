@@ -31,6 +31,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     self.navigationController.navigationBarHidden = YES;
+    self.tabBarController.tabBar.hidden = NO;
     [super viewDidAppear:animated];
     if (![PFUser currentUser]) {
         NSLog(@"entro");
@@ -73,6 +74,7 @@
     if ([segue.destinationViewController isKindOfClass:[EditReportViewController class]]) {
         EditReportViewController* ervc = segue.destinationViewController;
         ervc.report = self.clickedReport;
+        ervc.comingFrom = @"doneEditing";
     }
 }
 

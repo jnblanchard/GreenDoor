@@ -11,4 +11,5 @@
 
 @interface EditReportViewController : UIViewController
 @property PFObject* report;
+@property NSString* comingFrom;
 @end
