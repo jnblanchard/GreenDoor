@@ -291,6 +291,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="amountTextField" destination="yOk-TB-6CC" id="Ami-Q0-NQ5"/>
                         <outlet property="descriptionTextField" destination="Pjg-cX-elf" id="hfX-GQ-yrw"/>
                         <outlet property="itemTextField" destination="vch-ye-ouQ" id="Bug-Va-UlG"/>
+                        <outlet property="rateSegmentedControl" destination="gvc-SU-RFY" id="8iB-tV-hyY"/>
                         <outlet property="typeSegmentedControl" destination="GlG-tz-c1Q" id="Z1R-Mu-dtk"/>
                     </connections>
                 </viewController>
