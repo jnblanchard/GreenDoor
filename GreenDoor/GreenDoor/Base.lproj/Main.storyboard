@@ -270,6 +270,9 @@ AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                                 </timeZone>
+                                <connections>
+                                    <action selector="dateChosen:" destination="04m-aI-MrC" eventType="editingDidEndOnExit" id="tx5-Cg-xaZ"/>
+                                </connections>
                             </datePicker>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9em-2a-9hA">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
