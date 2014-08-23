@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@import MapKit;
 
 @interface BankViewController : UIViewController
+
+@property MKMapItem *bankMapItem;
 
 @end
