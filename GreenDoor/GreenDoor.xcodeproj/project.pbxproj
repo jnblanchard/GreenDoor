@@ -12,6 +12,9 @@
 		0BB956E919A90EEE003478D0 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB956E819A90EEE003478D0 /* SignupViewController.m */; };
 		0BB956EB19A9116B003478D0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB956EA19A9116B003478D0 /* Parse.framework */; };
 		0BF0DCD119A9453E00B2893A /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0DCD019A9453E00B2893A /* GraphViewController.m */; };
+		0BF0DD2419A9521D00B2893A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF0DD2319A9521D00B2893A /* OpenGLES.framework */; };
+		0BF0DD2619A9522400B2893A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF0DD2519A9522400B2893A /* CoreText.framework */; };
+		0BF0DD2819A9522F00B2893A /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF0DD2719A9522F00B2893A /* libc++.dylib */; };
 		0BF1BE4019A8E5FD000ABA27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF1BE3F19A8E5FD000ABA27 /* Foundation.framework */; };
 		0BF1BE4219A8E5FD000ABA27 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF1BE4119A8E5FD000ABA27 /* CoreGraphics.framework */; };
 		0BF1BE4419A8E5FD000ABA27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF1BE4319A8E5FD000ABA27 /* UIKit.framework */; };
@@ -70,6 +73,9 @@
 		0BB956EA19A9116B003478D0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		0BF0DCCF19A9453E00B2893A /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
 		0BF0DCD019A9453E00B2893A /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
+		0BF0DD2319A9521D00B2893A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		0BF0DD2519A9522400B2893A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		0BF0DD2719A9522F00B2893A /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		0BF1BE3C19A8E5FD000ABA27 /* GreenDoor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenDoor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF1BE3F19A8E5FD000ABA27 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0BF1BE4119A8E5FD000ABA27 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -129,6 +135,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BF0DD2819A9522F00B2893A /* libc++.dylib in Frameworks */,
+				0BF0DD2619A9522400B2893A /* CoreText.framework in Frameworks */,
+				0BF0DD2419A9521D00B2893A /* OpenGLES.framework in Frameworks */,
 				4285944F19A93C7100F7C74F /* MapKit.framework in Frameworks */,
 				0BF1BE8919A8E659000ABA27 /* Accounts.framework in Frameworks */,
 				0BF1BE8719A8E653000ABA27 /* AdSupport.framework in Frameworks */,
@@ -183,6 +192,9 @@
 		0BF1BE3E19A8E5FD000ABA27 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0BF0DD2719A9522F00B2893A /* libc++.dylib */,
+				0BF0DD2519A9522400B2893A /* CoreText.framework */,
+				0BF0DD2319A9521D00B2893A /* OpenGLES.framework */,
 				4285944E19A93C7100F7C74F /* MapKit.framework */,
 				0BB956EA19A9116B003478D0 /* Parse.framework */,
 				0BF1BE8819A8E659000ABA27 /* Accounts.framework */,
