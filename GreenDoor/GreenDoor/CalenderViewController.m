@@ -8,6 +8,7 @@
 
 #import "CalenderViewController.h"
 #import "TheCalendarViewController.h"
+#import "EditReportViewController.h"
 #import <Parse/Parse.h>
 
 @interface CalenderViewController () <UITableViewDelegate, UITableViewDataSource, TheCalendarProtocol>
@@ -59,5 +60,15 @@
     return self.reportsArray.count;
 }
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"editReport"]) {
+        EditReportViewController *vc = segue.destinationViewController;
+        PFObject *report = [self.reportsArray objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+
+        vc.report = report;
+    }
+}
 
 @end

@@ -16,7 +16,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="12w-3g-UYu" kind="relationship" relationship="viewControllers" id="LrK-Tu-2bW"/>
-                        <segue destination="bES-nQ-LHA" kind="relationship" relationship="viewControllers" id="QN8-rv-Z6m"/>
+                        <segue destination="6GA-t7-y7U" kind="relationship" relationship="viewControllers" id="QN8-rv-Z6m"/>
                         <segue destination="04m-aI-MrC" kind="relationship" relationship="viewControllers" id="80b-ju-2Xc"/>
                         <segue destination="KtO-wF-Uzo" kind="relationship" relationship="viewControllers" id="6Zn-gO-e6U"/>
                         <segue destination="fK2-Qn-hRD" kind="relationship" relationship="viewControllers" id="Ivx-78-hBe"/>
@@ -105,7 +105,7 @@
             </objects>
             <point key="canvasLocation" x="-2321" y="-1217"/>
         </scene>
-        <!--Calender View Controller - Item-->
+        <!--Calender View Controller-->
         <scene sceneID="zm8-I8-xgr">
             <objects>
                 <viewController id="bES-nQ-LHA" customClass="CalenderViewController" sceneMemberID="viewController">
@@ -122,13 +122,16 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Ib6-tY-oaG">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="Ib6-tY-oaG">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ib6-tY-oaG" id="4Y4-3K-sNA">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="8BB-mi-mn2" kind="push" identifier="editReport" id="PmO-0A-cFM"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -165,8 +168,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="2eZ-be-ehx"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Ank-Ud-Ole"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="container" destination="Xvk-4U-q4E" id="cl2-Eq-C5r"/>
@@ -175,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3PE-6z-rdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2321" y="-499"/>
+            <point key="canvasLocation" x="-1795" y="-499"/>
         </scene>
         <!--Add View Controller - Item-->
         <scene sceneID="fSH-3U-JSB">
@@ -515,7 +518,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y5H-pL-QaX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-800" y="-1336"/>
+            <point key="canvasLocation" x="-1169" y="-1009"/>
         </scene>
         <!--The Calendar View Controller-->
         <scene sceneID="9Xv-Xp-vkR">
@@ -534,7 +537,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MUz-bF-EZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-794" y="-639"/>
+            <point key="canvasLocation" x="-376" y="-439"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="phI-FT-5Y1">
@@ -555,6 +558,25 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-2849" y="-1217"/>
         </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="ajO-KZ-FAe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6GA-t7-y7U" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="2eZ-be-ehx"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="43Z-O5-4eN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bES-nQ-LHA" kind="relationship" relationship="rootViewController" id="S0V-ST-tGa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lL0-ea-7a1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2321" y="-499"/>
+        </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -562,7 +584,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ptt-Mq-czy"/>
+        <segue reference="PmO-0A-cFM"/>
+        <segue reference="PAd-gz-5ut"/>
         <segue reference="ayX-r7-irQ"/>
     </inferredMetricsTieBreakers>
 </document>
