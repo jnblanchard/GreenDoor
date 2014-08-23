@@ -15,9 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UITextField *itemTextField;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
-@property BOOL validItem;
-@property BOOL validDescription;
-@property BOOL validAmount;
 @end
 
 @implementation EditReportViewController
@@ -84,18 +81,18 @@
 - (IBAction)addButtonPressed:(id)sender
 {
     if (![self.descriptionTextField.text isEqualToString:@""] && ![self.itemTextField.text isEqualToString:@""] && ![self.amountTextField.text isEqualToString:@""]) {
-        self.report[@"itemName"] = self.itemTextField.text;
-        self.report[@"description"] = self.descriptionTextField.text;
-        self.report[@"amount"] = self.amountTextField.text;
-        self.report[@"type"] = [self.typeSegmentedControl titleForSegmentAtIndex:self.typeSegmentedControl.selectedSegmentIndex];
-        self.report[@"rate"] = [self.rateSegmentedControl titleForSegmentAtIndex:self.rateSegmentedControl.selectedSegmentIndex];
+        [self.report setObject:self.itemTextField.text forKey:@"itemName"];
+        [self.report setObject:self.descriptionTextField.text forKey:@"description"];
+        [self.report setObject:self.amountTextField.text forKey:@"amount"];
+        [self.report setObject:[self.typeSegmentedControl titleForSegmentAtIndex:self.typeSegmentedControl.selectedSegmentIndex] forKey:@"type"];
+        [self.report setObject:[self.rateSegmentedControl titleForSegmentAtIndex:self.rateSegmentedControl.selectedSegmentIndex] forKey:@"rate"];
         NSCalendar *calendar = [NSCalendar currentCalendar];
         NSInteger comps = (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit);
 
         NSDateComponents *dateComponents = [calendar components:comps
                                                        fromDate: [self.datePicker date]];
         NSDate *date1 = [calendar dateFromComponents:dateComponents];
-        self.report[@"date"] = date1;
+        [self.report setObject:date1 forKey:@"date"];
         [self.report saveEventually:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 [self dismissViewControllerAnimated:YES completion:nil];
