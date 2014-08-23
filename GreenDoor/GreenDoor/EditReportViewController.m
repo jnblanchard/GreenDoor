@@ -24,6 +24,13 @@
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = NO;
     self.amountTextField.text = self.report[@"amount"];
+    if ([self.amountTextField.text hasPrefix:@"-"]) {
+        self.amountTextField.backgroundColor = [UIColor redColor];
+        self.amountTextField.textColor = [UIColor whiteColor];
+    } else {
+        self.amountTextField.backgroundColor = [UIColor greenColor];
+        self.amountTextField.textColor = [UIColor whiteColor];
+    }
     self.descriptionTextField.text = self.report[@"description"];
     self.itemTextField.text = self.report[@"itemName"];
     if ([self.report[@"type"] isEqualToString:@"Other"] ) {
@@ -45,7 +52,13 @@
         self.rateSegmentedControl.selectedSegmentIndex = 0;
     }
     if ([self.report[@"rate"] isEqualToString:@"Weekly"]) {
-        
+        self.rateSegmentedControl.selectedSegmentIndex = 1;
+    }
+    if ([self.report[@"rate"] isEqualToString:@"Monthly"]) {
+        self.rateSegmentedControl.selectedSegmentIndex = 2;
+    }
+    if ([self.report[@"rate"] isEqualToString:@"Yearly"]) {
+        self.rateSegmentedControl.selectedSegmentIndex = 3;
     }
     // Do any additional setup after loading the view.
 }
