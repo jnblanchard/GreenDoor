@@ -32,8 +32,10 @@
 		0BF1BE8519A8E64E000ABA27 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF1BE8419A8E64E000ABA27 /* Social.framework */; };
 		0BF1BE8719A8E653000ABA27 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF1BE8619A8E653000ABA27 /* AdSupport.framework */; };
 		0BF1BE8919A8E659000ABA27 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF1BE8819A8E659000ABA27 /* Accounts.framework */; };
-		0BF1BE8A19A8E669000ABA27 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF1BE5E19A8E5FE000ABA27 /* XCTest.framework */; };
 		0BF1BE8C19A8E67E000ABA27 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF1BE8B19A8E67E000ABA27 /* Parse.framework */; };
+		E486168819A8FDBE008F08EC /* NewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168719A8FDBE008F08EC /* NewsFeedViewController.m */; };
+		E486168B19A8FE11008F08EC /* CalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168A19A8FE11008F08EC /* CalenderViewController.m */; };
+		E486168E19A9032D008F08EC /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168D19A9032D008F08EC /* AddViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,12 @@
 		0BF1BE8619A8E653000ABA27 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		0BF1BE8819A8E659000ABA27 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		0BF1BE8B19A8E67E000ABA27 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		E486168619A8FDBE008F08EC /* NewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedViewController.h; sourceTree = "<group>"; };
+		E486168719A8FDBE008F08EC /* NewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedViewController.m; sourceTree = "<group>"; };
+		E486168919A8FE11008F08EC /* CalenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderViewController.h; sourceTree = "<group>"; };
+		E486168A19A8FE11008F08EC /* CalenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalenderViewController.m; sourceTree = "<group>"; };
+		E486168C19A9032D008F08EC /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		E486168D19A9032D008F08EC /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +93,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BF1BE8A19A8E669000ABA27 /* XCTest.framework in Frameworks */,
 				0BF1BE8919A8E659000ABA27 /* Accounts.framework in Frameworks */,
 				0BF1BE8719A8E653000ABA27 /* AdSupport.framework in Frameworks */,
 				0BF1BE8519A8E64E000ABA27 /* Social.framework in Frameworks */,
@@ -164,6 +171,12 @@
 				0BF1BE4E19A8E5FE000ABA27 /* AppDelegate.h */,
 				0BF1BE4F19A8E5FE000ABA27 /* AppDelegate.m */,
 				0BF1BE5119A8E5FE000ABA27 /* Main.storyboard */,
+				E486168C19A9032D008F08EC /* AddViewController.h */,
+				E486168D19A9032D008F08EC /* AddViewController.m */,
+				E486168919A8FE11008F08EC /* CalenderViewController.h */,
+				E486168A19A8FE11008F08EC /* CalenderViewController.m */,
+				E486168619A8FDBE008F08EC /* NewsFeedViewController.h */,
+				E486168719A8FDBE008F08EC /* NewsFeedViewController.m */,
 				0BF1BE5419A8E5FE000ABA27 /* ViewController.h */,
 				0BF1BE5519A8E5FE000ABA27 /* ViewController.m */,
 				0BF1BE5719A8E5FE000ABA27 /* Images.xcassets */,
@@ -299,9 +312,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E486168B19A8FE11008F08EC /* CalenderViewController.m in Sources */,
 				0BF1BE5619A8E5FE000ABA27 /* ViewController.m in Sources */,
+				E486168E19A9032D008F08EC /* AddViewController.m in Sources */,
 				0BF1BE5019A8E5FE000ABA27 /* AppDelegate.m in Sources */,
 				0BF1BE4C19A8E5FE000ABA27 /* main.m in Sources */,
+				E486168819A8FDBE008F08EC /* NewsFeedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +532,7 @@
 				0BF1BE7019A8E5FE000ABA27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0BF1BE7119A8E5FE000ABA27 /* Build configuration list for PBXNativeTarget "GreenDoorTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +541,7 @@
 				0BF1BE7319A8E5FE000ABA27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
