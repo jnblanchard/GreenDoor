@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CalenderViewController.h"
+#import "PDTSimpleCalendar.h"
+#import "PDTSimpleCalendarViewController.h"
+#import "PDTSimpleCalendarViewCell.h"
+#import "PDTSimpleCalendarViewHeader.h"
 
-@interface TheCalendarViewController : UIViewController
+@class TheCalendarViewController;
+@protocol TheCalendarProtocol <NSObject>
+
+-(void)theCalendarProtocol:(TheCalendarViewController *)vc didSelectDateWithReports:(NSDate *)date;
+
+@end
+
+@interface TheCalendarViewController : PDTSimpleCalendarViewController
+
+@property  (nonatomic, assign) id<TheCalendarProtocol> delegateCalendar;
 
 @end
