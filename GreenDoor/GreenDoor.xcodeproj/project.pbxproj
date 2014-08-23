@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BB956E619A90ED1003478D0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB956E519A90ED1003478D0 /* LoginViewController.m */; };
+		0BB956E919A90EEE003478D0 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB956E819A90EEE003478D0 /* SignupViewController.m */; };
+		0BB956EB19A9116B003478D0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB956EA19A9116B003478D0 /* Parse.framework */; };
 		0BF1BE4019A8E5FD000ABA27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF1BE3F19A8E5FD000ABA27 /* Foundation.framework */; };
 		0BF1BE4219A8E5FD000ABA27 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF1BE4119A8E5FD000ABA27 /* CoreGraphics.framework */; };
 		0BF1BE4419A8E5FD000ABA27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF1BE4319A8E5FD000ABA27 /* UIKit.framework */; };
@@ -32,7 +35,6 @@
 		0BF1BE8519A8E64E000ABA27 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF1BE8419A8E64E000ABA27 /* Social.framework */; };
 		0BF1BE8719A8E653000ABA27 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF1BE8619A8E653000ABA27 /* AdSupport.framework */; };
 		0BF1BE8919A8E659000ABA27 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF1BE8819A8E659000ABA27 /* Accounts.framework */; };
-		0BF1BE8C19A8E67E000ABA27 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF1BE8B19A8E67E000ABA27 /* Parse.framework */; };
 		E486168819A8FDBE008F08EC /* NewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168719A8FDBE008F08EC /* NewsFeedViewController.m */; };
 		E486168B19A8FE11008F08EC /* CalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168A19A8FE11008F08EC /* CalenderViewController.m */; };
 		E486168E19A9032D008F08EC /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168D19A9032D008F08EC /* AddViewController.m */; };
@@ -49,6 +51,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0BB956E419A90ED1003478D0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
+		0BB956E519A90ED1003478D0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
+		0BB956E719A90EEE003478D0 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		0BB956E819A90EEE003478D0 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
+		0BB956EA19A9116B003478D0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		0BF1BE3C19A8E5FD000ABA27 /* GreenDoor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenDoor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF1BE3F19A8E5FD000ABA27 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0BF1BE4119A8E5FD000ABA27 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -79,7 +86,6 @@
 		0BF1BE8419A8E64E000ABA27 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		0BF1BE8619A8E653000ABA27 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		0BF1BE8819A8E659000ABA27 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		0BF1BE8B19A8E67E000ABA27 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		E486168619A8FDBE008F08EC /* NewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedViewController.h; sourceTree = "<group>"; };
 		E486168719A8FDBE008F08EC /* NewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedViewController.m; sourceTree = "<group>"; };
 		E486168919A8FE11008F08EC /* CalenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderViewController.h; sourceTree = "<group>"; };
@@ -97,8 +103,8 @@
 				0BF1BE8719A8E653000ABA27 /* AdSupport.framework in Frameworks */,
 				0BF1BE8519A8E64E000ABA27 /* Social.framework in Frameworks */,
 				0BF1BE8319A8E648000ABA27 /* SystemConfiguration.framework in Frameworks */,
+				0BB956EB19A9116B003478D0 /* Parse.framework in Frameworks */,
 				0BF1BE8119A8E640000ABA27 /* StoreKit.framework in Frameworks */,
-				0BF1BE8C19A8E67E000ABA27 /* Parse.framework in Frameworks */,
 				0BF1BE7F19A8E639000ABA27 /* Security.framework in Frameworks */,
 				0BF1BE7D19A8E632000ABA27 /* QuartzCore.framework in Frameworks */,
 				0BF1BE7B19A8E62D000ABA27 /* MobileCoreServices.framework in Frameworks */,
@@ -146,6 +152,7 @@
 		0BF1BE3E19A8E5FD000ABA27 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0BB956EA19A9116B003478D0 /* Parse.framework */,
 				0BF1BE8819A8E659000ABA27 /* Accounts.framework */,
 				0BF1BE8619A8E653000ABA27 /* AdSupport.framework */,
 				0BF1BE8419A8E64E000ABA27 /* Social.framework */,
@@ -179,6 +186,10 @@
 				E486168719A8FDBE008F08EC /* NewsFeedViewController.m */,
 				0BF1BE5419A8E5FE000ABA27 /* ViewController.h */,
 				0BF1BE5519A8E5FE000ABA27 /* ViewController.m */,
+				0BB956E419A90ED1003478D0 /* LoginViewController.h */,
+				0BB956E519A90ED1003478D0 /* LoginViewController.m */,
+				0BB956E719A90EEE003478D0 /* SignupViewController.h */,
+				0BB956E819A90EEE003478D0 /* SignupViewController.m */,
 				0BF1BE5719A8E5FE000ABA27 /* Images.xcassets */,
 				0BF1BE4619A8E5FE000ABA27 /* Supporting Files */,
 			);
@@ -188,7 +199,6 @@
 		0BF1BE4619A8E5FE000ABA27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0BF1BE8B19A8E67E000ABA27 /* Parse.framework */,
 				0BF1BE4719A8E5FE000ABA27 /* GreenDoor-Info.plist */,
 				0BF1BE4819A8E5FE000ABA27 /* InfoPlist.strings */,
 				0BF1BE4B19A8E5FE000ABA27 /* main.m */,
@@ -316,7 +326,9 @@
 				0BF1BE5619A8E5FE000ABA27 /* ViewController.m in Sources */,
 				E486168E19A9032D008F08EC /* AddViewController.m in Sources */,
 				0BF1BE5019A8E5FE000ABA27 /* AppDelegate.m in Sources */,
+				0BB956E619A90ED1003478D0 /* LoginViewController.m in Sources */,
 				0BF1BE4C19A8E5FE000ABA27 /* main.m in Sources */,
+				0BB956E919A90EEE003478D0 /* SignupViewController.m in Sources */,
 				E486168819A8FDBE008F08EC /* NewsFeedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,6 +458,7 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(PROJECT_DIR)/GreenDoor",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GreenDoor/GreenDoor-Prefix.pch";
@@ -464,6 +477,7 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(PROJECT_DIR)/GreenDoor",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GreenDoor/GreenDoor-Prefix.pch";
