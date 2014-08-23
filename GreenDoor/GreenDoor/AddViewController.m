@@ -87,7 +87,6 @@
         NSDateComponents *dateComponents = [calendar components:comps
                                                        fromDate: [self.datePicker date]];
         NSDate *date1 = [calendar dateFromComponents:dateComponents];
-        NSLog(@"%@", date1);
         aReport[@"date"] = date1;
         [aReport setObject:self.theUser forKey:@"user"];
         [aReport saveEventually:^(BOOL succeeded, NSError *error) {

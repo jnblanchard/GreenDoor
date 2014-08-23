@@ -14,7 +14,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *amountTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UITextField *itemTextField;
-
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property BOOL validItem;
+@property BOOL validDescription;
+@property BOOL validAmount;
 @end
 
 @implementation EditReportViewController
@@ -31,6 +34,7 @@
         self.amountTextField.backgroundColor = [UIColor greenColor];
         self.amountTextField.textColor = [UIColor whiteColor];
     }
+    self.datePicker.date = self.report[@"date"];
     self.descriptionTextField.text = self.report[@"description"];
     self.itemTextField.text = self.report[@"itemName"];
     if ([self.report[@"type"] isEqualToString:@"Other"] ) {
@@ -65,7 +69,7 @@
 
 - (IBAction)editingDidEnd:(id)sender
 {
-    
+
 }
 
 
@@ -79,6 +83,28 @@
 
 - (IBAction)addButtonPressed:(id)sender
 {
+    if (![self.descriptionTextField.text isEqualToString:@""] && ![self.itemTextField.text isEqualToString:@""] && ![self.amountTextField.text isEqualToString:@""]) {
+        self.report[@"itemName"] = self.itemTextField.text;
+        self.report[@"description"] = self.descriptionTextField.text;
+        self.report[@"amount"] = self.amountTextField.text;
+        self.report[@"type"] = [self.typeSegmentedControl titleForSegmentAtIndex:self.typeSegmentedControl.selectedSegmentIndex];
+        self.report[@"rate"] = [self.rateSegmentedControl titleForSegmentAtIndex:self.rateSegmentedControl.selectedSegmentIndex];
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        NSInteger comps = (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit);
+
+        NSDateComponents *dateComponents = [calendar components:comps
+                                                       fromDate: [self.datePicker date]];
+        NSDate *date1 = [calendar dateFromComponents:dateComponents];
+        self.report[@"date"] = date1;
+        [self.report saveEventually:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
+        }];
+    } else {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Empty Field/s" message:@"Populate all fields" delegate:self cancelButtonTitle:@"Done" otherButtonTitles: nil];
+        [alert show];
+    }
 }
 
 @end
