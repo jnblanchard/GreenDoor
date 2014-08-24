@@ -39,7 +39,6 @@
 
 -(IBAction)buttonPressed:(id)sender
 {
-    NSLog(@"here");
     self.selectedIndex = 2;
 }
 

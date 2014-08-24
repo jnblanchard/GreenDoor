@@ -32,13 +32,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     [self loadData];
+}
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self loadData];
 }
 
 - (void)loadData
 {
+
     PFQuery* query = [PFQuery queryWithClassName:@"Report"];
     [query orderByAscending:@"date"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -55,9 +59,11 @@
         self.minDate = [self findMinDate:array];
         self.maxDate = [self findMaxDate:array];
         self.negativeCash = 0;
+        int negCash = [self findNegativeCash:cashArray];
+        int posCash = [self findPositiveCash:cashArray];
         self.totalCash = [self findTotalCash:cashArray];
         self.percentageOfNegative = ((double)self.negativeCash) / self.totalCash;
-        int cashDifferential = self.positiveCash - self.negativeCash;
+        int cashDifferential = negCash - posCash;
         NSString* cash = [NSString stringWithFormat:@"%i", cashDifferential];
         cash = [cash stringByReplacingOccurrencesOfString:@"-" withString:@""];
         if (cashDifferential < 0) {
@@ -109,6 +115,30 @@
         [array removeObject:min];
     }
     return newArray;
+}
+
+-(int)findPositiveCash:(NSMutableArray*)array
+{
+    int total = 0;
+    NSString* newNegativeString;
+    for (NSString* cashAmount in array) {
+        if ([cashAmount hasPrefix:@"-"]) {
+            newNegativeString = [cashAmount stringByReplacingOccurrencesOfString:@"-" withString:@""];
+            total += newNegativeString.intValue;
+        }
+    }
+    return total;
+}
+
+-(int)findNegativeCash:(NSMutableArray*)array
+{
+    int total = 0;
+    for (NSString* cashAmount in array) {
+        if (![cashAmount hasPrefix:@"-"]) {
+            total += cashAmount.intValue;
+        }
+    }
+    return total;
 }
 
 -(int)findTotalCash:(NSMutableArray*)array
