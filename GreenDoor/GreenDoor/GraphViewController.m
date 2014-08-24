@@ -32,13 +32,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     [self loadData];
+}
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self loadData];
 }
 
 - (void)loadData
 {
+
     PFQuery* query = [PFQuery queryWithClassName:@"Report"];
     [query orderByAscending:@"date"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -52,12 +56,16 @@
             [array addObject:report[@"date"]];
             [cashArray addObject:report[@"amount"]];
         }
+        int min = [self findMinAmount:cashArray];
+        int max = [self findMaxAmount:cashArray];
         self.minDate = [self findMinDate:array];
         self.maxDate = [self findMaxDate:array];
         self.negativeCash = 0;
+        int negCash = [self findNegativeCash:cashArray];
+        int posCash = [self findPositiveCash:cashArray];
         self.totalCash = [self findTotalCash:cashArray];
         self.percentageOfNegative = ((double)self.negativeCash) / self.totalCash;
-        int cashDifferential = self.positiveCash - self.negativeCash;
+        int cashDifferential = negCash - posCash;
         NSString* cash = [NSString stringWithFormat:@"%i", cashDifferential];
         cash = [cash stringByReplacingOccurrencesOfString:@"-" withString:@""];
         if (cashDifferential < 0) {
@@ -83,7 +91,9 @@
         SChartDateTimeAxis* xAxis = [[SChartDateTimeAxis alloc]initWithRange:dateRange];
         self.chart.xAxis = xAxis;
 
-        SChartNumberRange* rangeY = [[SChartNumberRange alloc]initWithMinimum:[NSNumber numberWithInteger:-3000] andMaximum:[NSNumber numberWithInteger:3000]];
+
+
+        SChartNumberRange* rangeY = [[SChartNumberRange alloc]initWithMinimum:[NSNumber numberWithInt:min] andMaximum:[NSNumber numberWithInt:max]];
         SChartNumberAxis *yAxis = [[SChartNumberAxis alloc] initWithRange:rangeY];
         self.chart.yAxis = yAxis;
 
@@ -111,6 +121,30 @@
     return newArray;
 }
 
+-(int)findPositiveCash:(NSMutableArray*)array
+{
+    int total = 0;
+    NSString* newNegativeString;
+    for (NSString* cashAmount in array) {
+        if ([cashAmount hasPrefix:@"-"]) {
+            newNegativeString = [cashAmount stringByReplacingOccurrencesOfString:@"-" withString:@""];
+            total += newNegativeString.intValue;
+        }
+    }
+    return total;
+}
+
+-(int)findNegativeCash:(NSMutableArray*)array
+{
+    int total = 0;
+    for (NSString* cashAmount in array) {
+        if (![cashAmount hasPrefix:@"-"]) {
+            total += cashAmount.intValue;
+        }
+    }
+    return total;
+}
+
 -(int)findTotalCash:(NSMutableArray*)array
 {
     int total = 0;
@@ -127,6 +161,32 @@
         total += newString.intValue;
     }
     return total;
+}
+
+-(int)findMinAmount:(NSMutableArray*)array
+{
+    NSString* stringVal = array.firstObject;
+    int min = stringVal.intValue;
+    for (NSString *amount in array) {
+        int amountInt = amount.intValue;
+        if (amountInt < min) {
+            min = amountInt;
+        }
+    }
+    return min-750;
+}
+
+-(int)findMaxAmount:(NSMutableArray*)array
+{
+    NSString* stringVal = array.firstObject;
+    int max = stringVal.intValue;
+    for (NSString *amount in array) {
+        int amountInt = amount.intValue;
+        if (amountInt > max) {
+            max = amountInt;
+        }
+    }
+    return max+750;
 }
 
 -(NSDate*)findMinDate:(NSArray*)array

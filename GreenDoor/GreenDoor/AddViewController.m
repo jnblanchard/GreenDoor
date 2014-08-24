@@ -35,11 +35,16 @@
 
 - (IBAction)incomeButton:(id)sender
 {
-    if ([self.amountTextField.text hasPrefix:@"-"]) {
-        self.amountTextField.text = [self.amountTextField.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    if ([self.amountTextField.text isEqualToString:@""]) {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Missing an amount" message:@"Please enter $ amount" delegate:self cancelButtonTitle:@"Done" otherButtonTitles: nil];
+        [alert show];
+    } else {
+        if ([self.amountTextField.text hasPrefix:@"-"]) {
+            self.amountTextField.text = [self.amountTextField.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        }
+        self.amountTextField.backgroundColor = [UIColor greenColor];
+        self.amountTextField.textColor = [UIColor whiteColor];
     }
-    self.amountTextField.backgroundColor = [UIColor greenColor];
-    self.amountTextField.textColor = [UIColor whiteColor];
 }
 
 - (IBAction)expenseButton:(id)sender

@@ -7,6 +7,7 @@
 //
 
 #import "OurBarTabViewController.h"
+#import "AddViewController.h"
 
 @interface OurBarTabViewController ()
 @property UIImage* buttonImage;
@@ -17,9 +18,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tabBar.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1];
+    self.tabBar.translucent = NO;
+    self.buttonImage = [UIImage imageNamed:@"PlusButton"];
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0.0, 0.0, self.buttonImage.size.width, self.buttonImage.size.height);
+    button.frame = CGRectMake(0.0, 230.0, self.buttonImage.size.width-60, self.buttonImage.size.height-60);
     [button setBackgroundImage:self.buttonImage forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(buttonPressed:)
+     forControlEvents:UIControlEventTouchUpInside];
 
     CGFloat heightDifference = self.buttonImage.size.height - self.tabBar.frame.size.height;
     if (heightDifference < 0)
@@ -27,11 +33,15 @@
     else
     {
         CGPoint center = self.tabBar.center;
-        center.y = center.y - heightDifference/2.0;
+        center.y = (center.y - heightDifference/2.0) + 30;
         button.center = center;
     }
-    
     [self.view addSubview:button];
+}
+
+-(IBAction)buttonPressed:(id)sender
+{
+    self.selectedIndex = 2;
 }
 
 
