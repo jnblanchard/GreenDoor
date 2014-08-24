@@ -361,27 +361,27 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Utility" translatesAutoresizingMaskIntoConstraints="NO" id="yBw-AW-Ece">
-                                <rect key="frame" x="15" y="348" width="55" height="55"/>
+                                <rect key="frame" x="15" y="308" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Grocery" translatesAutoresizingMaskIntoConstraints="NO" id="vLa-VU-xAa">
-                                <rect key="frame" x="72" y="308" width="55" height="55"/>
+                                <rect key="frame" x="80" y="365" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Home" translatesAutoresizingMaskIntoConstraints="NO" id="lm9-D5-9US">
-                                <rect key="frame" x="133" y="348" width="55" height="55"/>
+                                <rect key="frame" x="133" y="308" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView hidden="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Income" translatesAutoresizingMaskIntoConstraints="NO" id="efM-Hi-kur">
-                                <rect key="frame" x="133" y="348" width="55" height="55"/>
+                                <rect key="frame" x="133" y="365" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Transport" translatesAutoresizingMaskIntoConstraints="NO" id="kzX-pv-fhZ">
-                                <rect key="frame" x="254" y="348" width="55" height="55"/>
+                                <rect key="frame" x="245" y="308" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Other" translatesAutoresizingMaskIntoConstraints="NO" id="lLg-Fz-atL">
-                                <rect key="frame" x="196" y="308" width="55" height="55"/>
+                                <rect key="frame" x="185" y="365" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yte-D4-Zog">
@@ -389,6 +389,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.85518973210000004" green="0.85518973210000004" blue="0.85518973210000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Choose  Date">
+                                    <color key="titleColor" white="0.61678832120000004" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -775,10 +776,10 @@
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.9215686917" green="0.9215686917" blue="0.9215686917" alpha="1" colorSpace="deviceRGB"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8GH-5b-kcC">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
