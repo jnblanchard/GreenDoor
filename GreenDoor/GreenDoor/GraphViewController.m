@@ -81,7 +81,7 @@
             }
             CGFloat width = self.incomeLabel.bounds.size.width * self.percentageOfNegative;
             CGFloat x = self.incomeLabel.bounds.size.width - width;
-            UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(x , self.incomeLabel.bounds.origin.y, width, self.incomeLabel.bounds.size.height)];
+            UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(x , self.incomeLabel.bounds.origin.y+71, width+12, self.incomeLabel.bounds.size.height)];
             self.incomeLabel.backgroundColor = GREEN_COLOR;
             label.backgroundColor = RED_COLOR;
             self.incomeLabel.clipsToBounds = YES;
@@ -96,11 +96,13 @@
             expenseLabel.textColor = [UIColor whiteColor];
             self.mostInnerMap.clipsToBounds = YES;
             self.mostInnerMap.layer.cornerRadius = 5;
+            self.mapView.clipsToBounds = YES;
+            self.mapView.layer.cornerRadius = 5;
             [self.mostInnerMap addSubview:label];
             [self.mostInnerMap addSubview:incomeLabel];
             [self.mostInnerMap addSubview:expenseLabel];
             CGFloat margin = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? 10.0 : 50.0;
-            self.chart = [[ShinobiChart alloc] initWithFrame:CGRectInset(CGRectMake(self.mapView.bounds.origin.x-10, self.mapView.bounds.origin.y, self.mapView.bounds.size.width, self.mapView.bounds.size.height), margin, margin)];
+            self.chart = [[ShinobiChart alloc] initWithFrame:CGRectInset(CGRectMake(15, 235, 289, 241), margin, margin)];
             self.chart.title = @"Reports: Line Graph";
             [self.chart applyTheme:[SChartLightTheme new]];
             SChartTitlePosition pos = SChartTitlePositionCenter;
