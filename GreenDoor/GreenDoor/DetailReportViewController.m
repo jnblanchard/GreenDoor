@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *typeImageView;
 @property (weak, nonatomic) IBOutlet UIButton *paidButton;
+@property (weak, nonatomic) IBOutlet UIImageView *newImageViewWhore;
 
 @property (weak, nonatomic) IBOutlet UIImageView *receiptImageView;
 @property (weak, nonatomic) IBOutlet UIView *viewBg;

@@ -11,7 +11,7 @@
 #import "Parse/Parse.h"
 
 
-@interface GraphViewController () <SChartDatasource>
+@interface GraphViewController () <SChartDatasource, SChartDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *incomeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *differentialLabel;
 @property (weak, nonatomic) IBOutlet UIView *innerView;
@@ -22,6 +22,7 @@
 @property NSDate* maxDate;
 @property NSMutableArray* dateArray;
 @property int totalCash;
+@property (weak, nonatomic) IBOutlet UIView *mostInnerMap;
 @property int negativeCash;
 @property int positiveCash;
 @property double percentageOfNegative;
@@ -77,9 +78,9 @@
                 self.differentialLabel.textColor = GREEN_COLOR;
                 self.differentialLabel.text = [NSString stringWithFormat:@"Revenue: $ %@", cash];
             }
-            CGFloat width = self.view.bounds.size.width * self.percentageOfNegative;
-            CGFloat x = self.view.bounds.size.width - width;
-            UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(x , self.innerView.bounds.origin.y+3, width-3, self.differentialLabel.bounds.size.height+37)];
+            CGFloat width = self.incomeLabel.bounds.size.width * self.percentageOfNegative;
+            CGFloat x = self.incomeLabel.bounds.size.width - width;
+            UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(x , self.incomeLabel.bounds.origin.y, width, self.incomeLabel.bounds.size.height)];
             self.incomeLabel.backgroundColor = GREEN_COLOR;
             label.backgroundColor = RED_COLOR;
             self.incomeLabel.clipsToBounds = YES;
@@ -92,11 +93,13 @@
             incomeLabel.textColor = [UIColor whiteColor];
             expenseLabel.text = [NSString stringWithFormat:@"$ -%i", posCash];
             expenseLabel.textColor = [UIColor whiteColor];
-            [self.innerView addSubview:label];
-            [self.innerView addSubview:incomeLabel];
-            [self.innerView addSubview:expenseLabel];
+            self.mostInnerMap.clipsToBounds = YES;
+            self.mostInnerMap.layer.cornerRadius = 5;
+            [self.mostInnerMap addSubview:label];
+            [self.mostInnerMap addSubview:incomeLabel];
+            [self.mostInnerMap addSubview:expenseLabel];
             CGFloat margin = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? 10.0 : 50.0;
-            self.chart = [[ShinobiChart alloc] initWithFrame:CGRectInset(CGRectMake(self.view.bounds.origin.x-10, self.view.bounds.origin.y+125, self.view.bounds.size.width+18, self.view.bounds.size.height - 157), margin, margin)];
+            self.chart = [[ShinobiChart alloc] initWithFrame:CGRectInset(CGRectMake(self.mostInnerMap.bounds.origin.x-10, self.view.bounds.origin.y+250, self.mostInnerMap.bounds.size.width, self.view.bounds.size.height - 300), margin, margin)];
             self.chart.title = @"Reports: Line Graph";
             [self.chart applyTheme:[SChartLightTheme new]];
             SChartTitlePosition pos = SChartTitlePositionCenter;
@@ -116,7 +119,8 @@
             self.chart.yAxis = yAxis;
             
             [self.view addSubview:self.chart];
-            
+
+            self.chart.delegate = self;
             self.chart.datasource = self;
         } else {
             self.differentialLabel.text = @"Enter your first report";
@@ -303,15 +307,6 @@
 
     return datapoint;
 }
-
-- (void)sChart:(ShinobiChart *)chart toggledSelectionForPoint:(SChartDataPoint *)dataPoint inSeries:(SChartSeries *)series atPixelCoordinate:(CGPoint)pixelPoint
-{
-
-}
-
-
-
-
 
 
 @end
