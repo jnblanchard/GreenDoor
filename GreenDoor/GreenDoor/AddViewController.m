@@ -94,8 +94,9 @@
         NSDate *date1 = [calendar dateFromComponents:dateComponents];
         aReport[@"date"] = date1;
         [aReport setObject:self.theUser forKey:@"user"];
-        [aReport saveEventually:^(BOOL succeeded, NSError *error) {
+        [aReport saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
+                NSLog(@"ENTRO!");
                 self.rateSegmentedControl.selectedSegmentIndex = 0;
                 self.typeSegmentedControl.selectedSegmentIndex = 0;
                 self.validItem = NO;

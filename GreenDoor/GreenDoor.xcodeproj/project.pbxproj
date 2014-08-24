@@ -54,6 +54,7 @@
 		4285945419A997B600F7C74F /* NewsCatalog.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4285945319A997B600F7C74F /* NewsCatalog.xcassets */; };
 		4285945A19A9A0DD00F7C74F /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285945919A9A0DD00F7C74F /* NewsCell.m */; };
 		4285945D19A9B86E00F7C74F /* CalendarViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285945C19A9B86E00F7C74F /* CalendarViewCell.m */; };
+		4285946019A9C8D500F7C74F /* DetailReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285945F19A9C8D500F7C74F /* DetailReportViewController.m */; };
 		E486168819A8FDBE008F08EC /* NewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168719A8FDBE008F08EC /* NewsFeedViewController.m */; };
 		E486168B19A8FE11008F08EC /* CalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168A19A8FE11008F08EC /* CalenderViewController.m */; };
 		E486168E19A9032D008F08EC /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168D19A9032D008F08EC /* AddViewController.m */; };
@@ -138,6 +139,8 @@
 		4285945919A9A0DD00F7C74F /* NewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
 		4285945B19A9B86E00F7C74F /* CalendarViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewCell.h; sourceTree = "<group>"; };
 		4285945C19A9B86E00F7C74F /* CalendarViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewCell.m; sourceTree = "<group>"; };
+		4285945E19A9C8D500F7C74F /* DetailReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailReportViewController.h; sourceTree = "<group>"; };
+		4285945F19A9C8D500F7C74F /* DetailReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailReportViewController.m; sourceTree = "<group>"; };
 		E486168619A8FDBE008F08EC /* NewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedViewController.h; sourceTree = "<group>"; };
 		E486168719A8FDBE008F08EC /* NewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedViewController.m; sourceTree = "<group>"; };
 		E486168919A8FE11008F08EC /* CalenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderViewController.h; sourceTree = "<group>"; };
@@ -274,6 +277,8 @@
 				4285945919A9A0DD00F7C74F /* NewsCell.m */,
 				4285945B19A9B86E00F7C74F /* CalendarViewCell.h */,
 				4285945C19A9B86E00F7C74F /* CalendarViewCell.m */,
+				4285945E19A9C8D500F7C74F /* DetailReportViewController.h */,
+				4285945F19A9C8D500F7C74F /* DetailReportViewController.m */,
 			);
 			path = GreenDoor;
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 				0BF0DD2D19A9957400B2893A /* OurBarTabViewController.m in Sources */,
 				4285944419A914C800F7C74F /* PDTSimpleCalendarViewHeader.m in Sources */,
 				E486168B19A8FE11008F08EC /* CalenderViewController.m in Sources */,
+				4285946019A9C8D500F7C74F /* DetailReportViewController.m in Sources */,
 				0BF1BE5619A8E5FE000ABA27 /* ViewController.m in Sources */,
 				4285944119A914C800F7C74F /* PDTSimpleCalendarViewCell.m in Sources */,
 				E486168E19A9032D008F08EC /* AddViewController.m in Sources */,
