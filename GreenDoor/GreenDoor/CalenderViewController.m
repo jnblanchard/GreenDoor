@@ -9,6 +9,7 @@
 #import "CalenderViewController.h"
 #import "TheCalendarViewController.h"
 #import "EditReportViewController.h"
+#import "CalendarViewCell.h"
 #import <Parse/Parse.h>
 
 @interface CalenderViewController () <UITableViewDelegate, UITableViewDataSource, TheCalendarProtocol>
@@ -23,6 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = YES;
     for (UIViewController* vc in self.childViewControllers) {
         if ([vc isKindOfClass:[TheCalendarViewController class]]) {
             // do something here
@@ -53,9 +55,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    CalendarViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     PFObject *report = [self.reportsArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = [report objectForKey:@"itemName"];
+    cell.reportLabel.text = [report objectForKey:@"itemName"];
+    cell.descriptionLabel.text = [report objectForKey:@"description"];
+    cell.dueLabel.text = [report objectForKey:@"amount"];
+    cell.typeImageView.image = [UIImage imageNamed:[report objectForKey:@"type"]];
     return cell;
 }
 

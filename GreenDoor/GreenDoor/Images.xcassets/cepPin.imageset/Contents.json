@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "cepPin.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "cepPin.png"
+      "scale" : "2x"
     }
   ],
   "info" : {

@@ -53,6 +53,7 @@
 		4285945219A9844500F7C74F /* CEPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285945119A9844500F7C74F /* CEPViewController.m */; };
 		4285945419A997B600F7C74F /* NewsCatalog.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4285945319A997B600F7C74F /* NewsCatalog.xcassets */; };
 		4285945A19A9A0DD00F7C74F /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285945919A9A0DD00F7C74F /* NewsCell.m */; };
+		4285945D19A9B86E00F7C74F /* CalendarViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285945C19A9B86E00F7C74F /* CalendarViewCell.m */; };
 		E486168819A8FDBE008F08EC /* NewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168719A8FDBE008F08EC /* NewsFeedViewController.m */; };
 		E486168B19A8FE11008F08EC /* CalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168A19A8FE11008F08EC /* CalenderViewController.m */; };
 		E486168E19A9032D008F08EC /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168D19A9032D008F08EC /* AddViewController.m */; };
@@ -135,6 +136,8 @@
 		4285945319A997B600F7C74F /* NewsCatalog.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = NewsCatalog.xcassets; sourceTree = "<group>"; };
 		4285945819A9A0DD00F7C74F /* NewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
 		4285945919A9A0DD00F7C74F /* NewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
+		4285945B19A9B86E00F7C74F /* CalendarViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewCell.h; sourceTree = "<group>"; };
+		4285945C19A9B86E00F7C74F /* CalendarViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewCell.m; sourceTree = "<group>"; };
 		E486168619A8FDBE008F08EC /* NewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedViewController.h; sourceTree = "<group>"; };
 		E486168719A8FDBE008F08EC /* NewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedViewController.m; sourceTree = "<group>"; };
 		E486168919A8FE11008F08EC /* CalenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderViewController.h; sourceTree = "<group>"; };
@@ -269,6 +272,8 @@
 				4285944C19A93B9600F7C74F /* BankViewController.m */,
 				4285945819A9A0DD00F7C74F /* NewsCell.h */,
 				4285945919A9A0DD00F7C74F /* NewsCell.m */,
+				4285945B19A9B86E00F7C74F /* CalendarViewCell.h */,
+				4285945C19A9B86E00F7C74F /* CalendarViewCell.m */,
 			);
 			path = GreenDoor;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 				0BB956E919A90EEE003478D0 /* SignupViewController.m in Sources */,
 				E486168819A8FDBE008F08EC /* NewsFeedViewController.m in Sources */,
 				4285945A19A9A0DD00F7C74F /* NewsCell.m in Sources */,
+				4285945D19A9B86E00F7C74F /* CalendarViewCell.m in Sources */,
 				4285945219A9844500F7C74F /* CEPViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

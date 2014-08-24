@@ -115,7 +115,7 @@
         if (result == NSOrderedAscending) {
         } else if (result == NSOrderedDescending) {
         }  else {
-            return [UIColor redColor];
+            return [UIColor colorWithRed:1 green:0.51 blue:0.51 alpha:0.5];
         }
     }
     return [UIColor whiteColor];
@@ -123,7 +123,7 @@
 
 - (UIColor *)simpleCalendarViewController:(PDTSimpleCalendarViewController *)controller textColorForDate:(NSDate *)date
 {
-    return [UIColor blackColor];
+    return [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1];
 }
 
 @end
