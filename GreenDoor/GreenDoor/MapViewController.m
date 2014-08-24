@@ -22,7 +22,8 @@
 @property CLLocationManager *locationManager;
 @property NSMutableArray *bankArray;
 @property NSMutableArray *cepArray;
-@property NSMutableArray *annotationArray;
+@property NSMutableArray *annotationBankArray;
+@property NSMutableArray *annotationCepArray;
 
 @property UIImage *bankImage;
 @property UIImage *cepImage;
@@ -37,15 +38,16 @@
     // Do any additional setup after loading the view.
     self.mapView.showsUserLocation = YES;
     self.bankArray = [NSMutableArray new];
-    self.annotationArray = [NSMutableArray new];
+    self.annotationBankArray = [NSMutableArray new];
     self.locationManager = [[CLLocationManager alloc] init];
     self.cepArray = [NSMutableArray new];
     self.locationManager.delegate = self;
+    self.annotationCepArray = [NSMutableArray new];
     [self.locationManager startUpdatingLocation];
     [self.mapView setRegion:MKCoordinateRegionMake(self.locationManager.location.coordinate, MKCoordinateSpanMake(0.4, 0.4))];
 
-    [self.bankImage]
-
+    self.bankImage = [UIImage imageNamed:@"bankPin"];
+    self.cepImage = [UIImage imageNamed:@"cepPin"];
 
 
     [self createCEPwithLatitude:41.811833 longitude:-87.707699 andName:@"Brighton Park Neighborhood Council"];
@@ -87,6 +89,7 @@
             PFGeoPoint *geoPoint = [place objectForKey:@"location"];
             point.coordinate = CLLocationCoordinate2DMake(geoPoint.latitude, geoPoint.longitude);
             [self.mapView addAnnotation:point];
+            [self.annotationCepArray addObject:point];
         }
     }];
 
@@ -106,7 +109,7 @@
             {
                 [self.bankArray addObject:item];
                 MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
-                [self.annotationArray addObject:annotation];
+                [self.annotationBankArray addObject:annotation];
                 annotation.coordinate = item.placemark.coordinate;
                 annotation.title = item.name;
                 [self.mapView addAnnotation:annotation];
@@ -127,12 +130,15 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    if ([self.annotationArray containsObject:annotation]) {
+    if ([self.annotationBankArray containsObject:annotation]) {
         MKPinAnnotationView *view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
-        view.image = [UIImage imageNamed:@"bankPin"];
+        view.image = self.bankImage;
         view.canShowCallout = YES;
         view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         return view;
+    }
+    if ([self.cepArray containsObject:annotation]) {
+
     }
     return nil;
 
@@ -153,8 +159,9 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    MKPointAnnotation *point = sender;
+
     if ([segue.identifier isEqualToString:@"bank"]) {
-        MKPointAnnotation *point = sender;
         for (MKMapItem *bankMapItem in self.bankArray) {
 
             if (CLCOORDINATES_EQUAL(bankMapItem.placemark.coordinate, point.coordinate)) {
@@ -167,7 +174,14 @@
     }
 
     if ([segue.identifier isEqualToString:@"cep"]) {
-        CEPViewController *cvc = segue.destinationViewController;
+        for (PFObject *cep in self.cepArray) {
+            PFGeoPoint *coord = [cep objectForKey:@"location"];
+            if (CLCOORDINATES_EQUAL(CLLocationCoordinate2DMake(coord.latitude, coord.longitude), point.coordinate)) {
+                CEPViewController *cvc = segue.destinationViewController;
+                cvc.cepPFObject  = cep;
+                break;
+            }
+        }
 
     }
 }

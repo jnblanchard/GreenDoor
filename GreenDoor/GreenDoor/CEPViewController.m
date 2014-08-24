@@ -20,6 +20,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    PFGeoPoint *geoPoint = [self.cepPFObject objectForKey:@"location"];
+    point.coordinate = CLLocationCoordinate2DMake(geoPoint.latitude, geoPoint.longitude);
+    [self.mapView addAnnotation:point];
     // Do any additional setup after loading the view.
 }
 
