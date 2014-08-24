@@ -21,6 +21,10 @@
 @property NSDate* minDate;
 @property NSDate* maxDate;
 @property NSMutableArray* dateArray;
+@property int totalCash;
+@property int negativeCash;
+@property int positiveCash;
+@property double percentageOfNegative;
 @end
 
 @implementation GraphViewController
@@ -28,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     [self loadData];
 
 }
@@ -42,11 +47,31 @@
             [self.chart reloadData];
         }
         NSMutableArray* array = [NSMutableArray new];
+        NSMutableArray* cashArray = [NSMutableArray new];
         for (PFObject* report in self.dataArray) {
             [array addObject:report[@"date"]];
+            [cashArray addObject:report[@"amount"]];
         }
         self.minDate = [self findMinDate:array];
         self.maxDate = [self findMaxDate:array];
+        self.negativeCash = 0;
+        self.totalCash = [self findTotalCash:cashArray];
+        self.percentageOfNegative = ((double)self.negativeCash) / self.totalCash;
+        int cashDifferential = self.positiveCash - self.negativeCash;
+        NSString* cash = [NSString stringWithFormat:@"%i", cashDifferential];
+        cash = [cash stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        if (cashDifferential < 0) {
+            self.differentialLabel.textColor = [UIColor redColor];
+            self.differentialLabel.text = [NSString stringWithFormat:@"Revenue: $ -%@", cash];
+        } else {
+            self.differentialLabel.textColor = [UIColor greenColor];
+            self.differentialLabel.text = [NSString stringWithFormat:@"Revenue: $ %@", cash];
+        }
+        CGFloat width = self.view.bounds.size.width * self.percentageOfNegative;
+        CGFloat x = self.view.bounds.size.width - width;
+        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(x , self.innerView.bounds.origin.y, width, self.differentialLabel.bounds.size.height+37)];
+        label.backgroundColor = [UIColor redColor];
+        [self.innerView addSubview:label];
         CGFloat margin = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? 10.0 : 50.0;
         self.chart = [[ShinobiChart alloc] initWithFrame:CGRectInset(CGRectMake(self.view.bounds.origin.x-10, self.view.bounds.origin.y+84, self.view.bounds.size.width+18, self.view.bounds.size.height - 125), margin, margin)];
         self.chart.title = @"Reports: Line Graph";
@@ -68,6 +93,8 @@
     }];
 }
 
+
+
 -(NSMutableArray*)orderArray:(NSMutableArray*)array
 {
     NSMutableArray* newArray = [NSMutableArray new];
@@ -82,6 +109,24 @@
         [array removeObject:min];
     }
     return newArray;
+}
+
+-(int)findTotalCash:(NSMutableArray*)array
+{
+    int total = 0;
+    NSString* newString;
+    NSString* newNegativeString;
+    for (NSString* cashAmount in array) {
+        if ([cashAmount hasPrefix:@"-"]) {
+            newNegativeString = [cashAmount stringByReplacingOccurrencesOfString:@"-" withString:@""];
+            self.negativeCash += newNegativeString.intValue;
+        } else {
+            self.positiveCash += cashAmount.intValue;
+        }
+        newString = [cashAmount stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        total += newString.intValue;
+    }
+    return total;
 }
 
 -(NSDate*)findMinDate:(NSArray*)array
