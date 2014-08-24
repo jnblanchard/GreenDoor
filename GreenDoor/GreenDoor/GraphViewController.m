@@ -79,20 +79,22 @@
             }
             CGFloat width = self.view.bounds.size.width * self.percentageOfNegative;
             CGFloat x = self.view.bounds.size.width - width;
-            UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(x , self.innerView.bounds.origin.y, width, self.differentialLabel.bounds.size.height+37)];
+            UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(x , self.innerView.bounds.origin.y+3, width-3, self.differentialLabel.bounds.size.height+37)];
             self.incomeLabel.backgroundColor = GREEN_COLOR;
             label.backgroundColor = RED_COLOR;
             self.incomeLabel.clipsToBounds = YES;
             label.clipsToBounds = YES;
-            self.incomeLabel.layer.cornerRadius = 25;
-            label.layer.cornerRadius = 25;
+            self.incomeLabel.layer.cornerRadius = 6;
+            label.layer.cornerRadius = 6;
             UILabel* incomeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.incomeLabel.bounds.origin.x + 10, self.incomeLabel.bounds.origin.y+15, 50, 20)];
-            incomeLabel.text = [NSString stringWithFormat:@"$ %i", posCash];
+            incomeLabel.text = [NSString stringWithFormat:@"$ %i", negCash];
+            incomeLabel.textColor = [UIColor whiteColor];
             [self.innerView addSubview:label];
             [self.innerView addSubview:incomeLabel];
             CGFloat margin = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? 10.0 : 50.0;
-            self.chart = [[ShinobiChart alloc] initWithFrame:CGRectInset(CGRectMake(self.view.bounds.origin.x-10, self.view.bounds.origin.y+132, self.view.bounds.size.width+18, self.view.bounds.size.height - 165), margin, margin)];
+            self.chart = [[ShinobiChart alloc] initWithFrame:CGRectInset(CGRectMake(self.view.bounds.origin.x-10, self.view.bounds.origin.y+125, self.view.bounds.size.width+18, self.view.bounds.size.height - 157), margin, margin)];
             self.chart.title = @"Reports: Line Graph";
+            self.chart.tintColor = [UIColor whiteColor];
 
             self.chart.licenseKey = @"Yo4qzAHywKn0qvVMjAxNDA5MjJqbmJsYW5jaGFyZEBtYWMuY29trMV1GXfqeYP4GjjsB1dDDbPUmHVSHQkJAJQqpKM6feF5BrUFY8k9aaK4InUNRfCtQT+EgT4I851spCJLFzBtBEy/lawg0mAxLWtfyqR8Qw5EeWVuZkc37t0qyQeAlOmFrzGe/8eidlnpqaSLbS5xHt0bRNuM=BQxSUisl3BaWf/7myRmmlIjRnMU2cA7q+/03ZX9wdj30RzapYANf51ee3Pi8m2rVW6aD7t6Hi4Qy5vv9xpaQYXF5T7XzsafhzS3hbBokp36BoJZg8IrceBj742nQajYyV7trx5GIw9jy/V6r0bvctKYwTim7Kzq+YPWGMtqtQoU=PFJTQUtleVZhbHVlPjxNb2R1bHVzPnh6YlRrc2dYWWJvQUh5VGR6dkNzQXUrUVAxQnM5b2VrZUxxZVdacnRFbUx3OHZlWStBK3pteXg4NGpJbFkzT2hGdlNYbHZDSjlKVGZQTTF4S2ZweWZBVXBGeXgxRnVBMThOcDNETUxXR1JJbTJ6WXA3a1YyMEdYZGU3RnJyTHZjdGhIbW1BZ21PTTdwMFBsNWlSKzNVMDg5M1N4b2hCZlJ5RHdEeE9vdDNlMD08L01vZHVsdXM+PEV4cG9uZW50PkFRQUI8L0V4cG9uZW50PjwvUlNBS2V5VmFsdWU+"; // TODO: add your trial licence key here!
             self.chart.autoresizingMask = ~UIViewAutoresizingNone;
