@@ -27,6 +27,10 @@
     // Do any additional setup after loading the view.
 }
 
+- (IBAction)backButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (IBAction)getDirecctions:(id)sender
 {
 }
