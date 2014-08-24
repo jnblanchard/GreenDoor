@@ -44,6 +44,7 @@
 {
     NSLog(@"date %@",date);
     PFQuery *query = [PFQuery queryWithClassName:@"Report"];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
     [query whereKey:@"date" equalTo:date];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.reportsArray = objects;

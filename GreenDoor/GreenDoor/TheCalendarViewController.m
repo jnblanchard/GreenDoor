@@ -46,6 +46,7 @@
 - (void)getReports
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Report"];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.reportsArray = objects;
         [self.collectionView reloadData];
@@ -88,7 +89,6 @@
     NSDate *date1 = [calendar dateFromComponents:dateComponents];
 
     [self.delegateCalendar theCalendarProtocol:self didSelectDateWithReports:date1];
-    NSLog(@"Date Selected : %@",date);
 }
 
 - (BOOL)simpleCalendarViewController:(PDTSimpleCalendarViewController *)controller shouldUseCustomColorsForDate:(NSDate *)date
