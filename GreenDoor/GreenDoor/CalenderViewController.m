@@ -44,7 +44,6 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Report"];
     [query whereKey:@"date" equalTo:date];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSLog(@"OBJECTS %@", objects);
         self.reportsArray = objects;
         [self.tableView reloadData];
     }];
