@@ -49,6 +49,26 @@
 
 - (IBAction)getDirecctions:(id)sender
 {
+        MKDirectionsRequest *directionRequest = [[MKDirectionsRequest alloc] init];
+        directionRequest.source = [MKMapItem mapItemForCurrentLocation];
+    PFGeoPoint *point = [self.cepPFObject objectForKey:@"location"];
+
+    MKPlacemark *placeMark = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(point.latitude, point.longitude) addressDictionary:nil];
+    MKMapItem *item = [[MKMapItem alloc] initWithPlacemark:placeMark];
+        directionRequest.destination = item;
+
+
+        MKDirections *directions = [[MKDirections alloc] initWithRequest:directionRequest];
+        [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+            NSLog(@"entroo 1 count %lu",(unsigned long)response.routes.count);
+            MKRoute *route = response.routes.firstObject;
+            NSString *message = @"";
+            for (MKRouteStep *step in route.steps) {
+                message = [message stringByAppendingString:step.instructions];
+            }
+            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Direction" message:message delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
+            [av show];
+        }];
 }
 
 
@@ -56,12 +76,12 @@
 {
     NSString *emailTitle = [NSString stringWithFormat:@"Appointment for CEP: %@",[PFUser currentUser].username];
     // Email Content
-    NSString *body = [self.hourSegmentedControl titleForSegmentAtIndex:self.hourSegmentedControl.selectedSegmentIndex];
-    body = [body stringByAppendingString:@" "];
-    body = [body stringByAppendingString:[self.daySegmentedControl titleForSegmentAtIndex:self.daySegmentedControl.selectedSegmentIndex]];
-    body = [body stringByAppendingString:@"\n"];
-    body = [body stringByAppendingString:self.detailsTextField.text];
-    NSString *messageBody = body;
+//    NSString *body = [self.hourSegmentedControl titleForSegmentAtIndex:self.hourSegmentedControl.selectedSegmentIndex];
+//    body = [body stringByAppendingString:@" "];
+//    body = [body stringByAppendingString:[self.daySegmentedControl titleForSegmentAtIndex:self.daySegmentedControl.selectedSegmentIndex]];
+//    body = [body stringByAppendingString:@"\n"];
+//    body = [body stringByAppendingString:self.detailsTextField.text];
+    NSString *messageBody = @"Appointment for Wednesday at 6:00";
     // To address
     NSArray *toRecipents = [NSArray arrayWithObject:@"ivanruizmonjo@gmail.com"];
 
@@ -130,5 +150,9 @@
 }
 - (IBAction)goEndOnExit:(id)sender {
     [self resignFirstResponder];
+}
+
+
+- (IBAction)directions:(id)sender {
 }
 @end

@@ -63,13 +63,13 @@
     PFObject* report = [self.reports objectAtIndex:indexPath.row];
     cell.backgroundImageView.layer.cornerRadius = 8.0;
     cell.reportNameLabel.text = report[@"itemName"];
-    cell.descriptionLabel.text = [@"Description:" stringByAppendingString: report[@"description"]];
+    cell.descriptionLabel.text = [@"Description: " stringByAppendingString: report[@"description"]];
 
     NSString *dateString = [NSDateFormatter localizedStringFromDate:[report objectForKey:@"date"]
                                                           dateStyle:NSDateFormatterMediumStyle
                                                           timeStyle:NSDateFormatterNoStyle];
-    cell.dateLabel.text = [@"Date:" stringByAppendingString:dateString];
-    cell.amountLabel.text = [@"$" stringByAppendingString:report[@"amount"]];
+    cell.dateLabel.text = [@"Date: " stringByAppendingString:dateString];
+    cell.amountLabel.text = [@"Amount: $" stringByAppendingString:report[@"amount"]];
     cell.typeImageView.image = [UIImage imageNamed:[report objectForKey:@"type"]];
     cell.rightBackgroundImageView.layer.cornerRadius = 8.0;
     if ([report[@"amount"] intValue] > 0) {

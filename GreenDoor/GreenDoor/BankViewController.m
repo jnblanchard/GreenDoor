@@ -21,6 +21,10 @@
 
 @implementation BankViewController
 
+- (IBAction)directions:(id)sender {
+    [self getDirections];
+
+}
 
 - (void)viewDidLoad
 {
@@ -44,7 +48,6 @@
     self.directionTextView.text = [[self.directionTextView.text stringByAppendingString: self.bankMapItem.placemark.postalCode] stringByAppendingString:@"\n"];
     self.directionTextView.text = [[self.directionTextView.text stringByAppendingString: self.bankMapItem.placemark.ISOcountryCode] stringByAppendingString:@"\n"];
 
-    [self getDirections];
 
 }
 
