@@ -9,41 +9,30 @@
 #import "OurBarTabViewController.h"
 
 @interface OurBarTabViewController ()
-
+@property UIImage* buttonImage;
 @end
 
 @implementation OurBarTabViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0.0, 0.0, self.buttonImage.size.width, self.buttonImage.size.height);
+    [button setBackgroundImage:self.buttonImage forState:UIControlStateNormal];
+
+    CGFloat heightDifference = self.buttonImage.size.height - self.tabBar.frame.size.height;
+    if (heightDifference < 0)
+        button.center = self.tabBar.center;
+    else
+    {
+        CGPoint center = self.tabBar.center;
+        center.y = center.y - heightDifference/2.0;
+        button.center = center;
+    }
+    
+    [self.view addSubview:button];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
