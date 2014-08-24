@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B626B2119A92AC7006C81F9 /* EditReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B626B2019A92AC7006C81F9 /* EditReportViewController.m */; };
 		0BB956E619A90ED1003478D0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB956E519A90ED1003478D0 /* LoginViewController.m */; };
 		0BB956E919A90EEE003478D0 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB956E819A90EEE003478D0 /* SignupViewController.m */; };
 		0BB956EB19A9116B003478D0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB956EA19A9116B003478D0 /* Parse.framework */; };
@@ -71,8 +70,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B626B1F19A92AC7006C81F9 /* EditReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditReportViewController.h; sourceTree = "<group>"; };
-		0B626B2019A92AC7006C81F9 /* EditReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditReportViewController.m; sourceTree = "<group>"; };
 		0BB956E419A90ED1003478D0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
 		0BB956E519A90ED1003478D0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
 		0BB956E719A90EEE003478D0 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
@@ -248,8 +245,6 @@
 				0BF0DD2C19A9957400B2893A /* OurBarTabViewController.m */,
 				0BF0DCCF19A9453E00B2893A /* GraphViewController.h */,
 				0BF0DCD019A9453E00B2893A /* GraphViewController.m */,
-				0B626B1F19A92AC7006C81F9 /* EditReportViewController.h */,
-				0B626B2019A92AC7006C81F9 /* EditReportViewController.m */,
 				E486168C19A9032D008F08EC /* AddViewController.h */,
 				E486168D19A9032D008F08EC /* AddViewController.m */,
 				E486168919A8FE11008F08EC /* CalenderViewController.h */,
@@ -440,7 +435,6 @@
 				0BB956E619A90ED1003478D0 /* LoginViewController.m in Sources */,
 				0BF0DCD119A9453E00B2893A /* GraphViewController.m in Sources */,
 				4285944D19A93B9600F7C74F /* BankViewController.m in Sources */,
-				0B626B2119A92AC7006C81F9 /* EditReportViewController.m in Sources */,
 				0BF1BE4C19A8E5FE000ABA27 /* main.m in Sources */,
 				4285944A19A93B3500F7C74F /* MapViewController.m in Sources */,
 				0BB956E919A90EEE003478D0 /* SignupViewController.m in Sources */,

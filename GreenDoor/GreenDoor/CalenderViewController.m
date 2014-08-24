@@ -8,9 +8,9 @@
 
 #import "CalenderViewController.h"
 #import "TheCalendarViewController.h"
-#import "EditReportViewController.h"
 #import "CalendarViewCell.h"
 #import <Parse/Parse.h>
+#import "DetailReportViewController.h"
 
 @interface CalenderViewController () <UITableViewDelegate, UITableViewDataSource, TheCalendarProtocol>
 @property (weak, nonatomic) IBOutlet UIView *container;
@@ -69,14 +69,24 @@
     return self.reportsArray.count;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"detail" sender:nil];
+}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"editReport"]) {
-        EditReportViewController *vc = segue.destinationViewController;
-        PFObject *report = [self.reportsArray objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-        vc.comingFrom = @"backToCalendar";
-        vc.report = report;
+//    if ([segue.identifier isEqualToString:@"editReport"]) {
+//        EditReportViewController *vc = segue.destinationViewController;
+//        PFObject *report = [self.reportsArray objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+//        vc.comingFrom = @"backToCalendar";
+//        vc.report = report;
+//    }
+    if ([segue.identifier isEqualToString:@"detail"]) {
+        DetailReportViewController *dvc = segue.destinationViewController;
+        NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+        dvc.object = [self.reportsArray objectAtIndex:indexPath.row];
     }
 }
 

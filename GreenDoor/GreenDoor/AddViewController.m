@@ -29,6 +29,7 @@
 @property UIActionSheet *actionSheet;
 @property (weak, nonatomic) IBOutlet UIButton *showDatePickerButton;
 @property PFFile *file;
+@property (weak, nonatomic) IBOutlet UIImageView *incomeImageView;
 
 @end
 
@@ -123,8 +124,8 @@
 
     [[subviews objectAtIndex:0] setFrame:CGRectMake(20, 366, 280, 46)];
     [[subviews objectAtIndex:2] setFrame:CGRectMake(20, 317, 280, 46)];
-    
-    
+
+
 }
 
 
@@ -208,30 +209,35 @@
 
 - (IBAction)incomeButton:(id)sender
 {
-    if ([self.amountTextField.text isEqualToString:@""]) {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Missing an amount" message:@"Please enter $ amount" delegate:self cancelButtonTitle:@"Done" otherButtonTitles: nil];
-        [alert show];
-    } else {
-        if ([self.amountTextField.text hasPrefix:@"-"]) {
-            self.amountTextField.text = [self.amountTextField.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
-        }
-        self.amountTextField.backgroundColor = [UIColor greenColor];
-        self.amountTextField.textColor = [UIColor whiteColor];
+
+    if ([self.amountTextField.text hasPrefix:@"-"]) {
+        self.amountTextField.text = [self.amountTextField.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
     }
+    self.amountTextField.backgroundColor = [UIColor greenColor];
+    self.amountTextField.textColor = [UIColor whiteColor];
+    self.homeImageView.hidden = YES;
+    self.otherImageView.hidden = YES;
+    self.utilityImageView.hidden = YES;
+    self.transportImage.hidden = YES;
+    self.groceryImageView.hidden = YES;
+    self.incomeImageView.hidden = NO;
+
 }
 
 - (IBAction)expenseButton:(id)sender
 {
-    if ([self.amountTextField.text isEqualToString:@""]) {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Missing an amount" message:@"Please enter $ amount" delegate:self cancelButtonTitle:@"Done" otherButtonTitles: nil];
-        [alert show];
-    } else {
+
         if (![self.amountTextField.text hasPrefix:@"-"]) {
             self.amountTextField.text = [@"-" stringByAppendingString:self.amountTextField.text];
             self.amountTextField.textColor = [UIColor whiteColor];
             self.amountTextField.backgroundColor = [UIColor redColor];
         }
-    }
+    self.homeImageView.hidden = NO;
+    self.otherImageView.hidden = NO;
+    self.utilityImageView.hidden = NO;
+    self.transportImage.hidden = NO;
+    self.groceryImageView.hidden = NO;
+    self.incomeImageView.hidden = YES;
 }
 
 - (IBAction)didEndOnExit:(UITextField*)sender
@@ -300,6 +306,9 @@
 
 - (NSString *)getType
 {
+    if (self.amountTextField.text.intValue > 0) {
+        return @"Income";
+    }
     if (self.homeImageView.tag) {
         return @"Home";
     }

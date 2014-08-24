@@ -107,7 +107,7 @@
                                             <outlet property="amountLabel" destination="Pon-sS-bBE" id="kMN-Mt-dPF"/>
                                             <outlet property="backgroundImageView" destination="h8A-K6-Ss2" id="SoH-Kx-4rC"/>
                                             <outlet property="dateLabel" destination="v3c-YU-5ye" id="afb-EY-uze"/>
-                                            <outlet property="descriptionLabel" destination="Pon-sS-bBE" id="Vwt-wG-ZBF"/>
+                                            <outlet property="descriptionLabel" destination="xjk-zG-jsJ" id="uy7-1C-vfM"/>
                                             <outlet property="reportNameLabel" destination="Ufd-CU-ae0" id="h5r-Ye-ctV"/>
                                             <outlet property="rightBackgroundImageView" destination="l7y-tw-4h5" id="0h6-HH-WuZ"/>
                                             <outlet property="typeImageView" destination="Xqv-ln-jra" id="Gbn-fz-Kxa"/>
@@ -248,11 +248,12 @@
                     <connections>
                         <outlet property="container" destination="Xvk-4U-q4E" id="cl2-Eq-C5r"/>
                         <outlet property="tableView" destination="Hzu-j4-g4P" id="swG-gr-pd0"/>
+                        <segue destination="2te-3a-Huw" kind="push" identifier="detail" id="dCQ-Ta-azK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3PE-6z-rdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1795" y="-499"/>
+            <point key="canvasLocation" x="-1775" y="-521"/>
         </scene>
         <!--Add View Controller-->
         <scene sceneID="fSH-3U-JSB">
@@ -355,10 +356,9 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.72156862749999995" green="0.91372549020000005" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhd-zz-V8M">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="receipt" translatesAutoresizingMaskIntoConstraints="NO" id="hhd-zz-V8M">
                                 <rect key="frame" x="203" y="195" width="106" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Utility" translatesAutoresizingMaskIntoConstraints="NO" id="yBw-AW-Ece">
                                 <rect key="frame" x="15" y="348" width="55" height="55"/>
@@ -369,6 +369,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Home" translatesAutoresizingMaskIntoConstraints="NO" id="lm9-D5-9US">
+                                <rect key="frame" x="133" y="348" width="55" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView hidden="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Income" translatesAutoresizingMaskIntoConstraints="NO" id="efM-Hi-kur">
                                 <rect key="frame" x="133" y="348" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -400,6 +404,7 @@
                         <outlet property="descriptionTextField" destination="Pjg-cX-elf" id="tLU-sI-rKV"/>
                         <outlet property="groceryImageView" destination="vLa-VU-xAa" id="1JH-Of-n13"/>
                         <outlet property="homeImageView" destination="lm9-D5-9US" id="lfO-07-aos"/>
+                        <outlet property="incomeImageView" destination="efM-Hi-kur" id="bgO-zt-TBr"/>
                         <outlet property="itemTextField" destination="vch-ye-ouQ" id="Bug-Va-UlG"/>
                         <outlet property="otherImageView" destination="lLg-Fz-atL" id="RCL-03-vrT"/>
                         <outlet property="rateSegmentedControl" destination="gvc-SU-RFY" id="8iB-tV-hyY"/>
@@ -678,43 +683,39 @@
                         <viewControllerLayoutGuide type="bottom" id="YTs-km-NdY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xru-MU-phL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yjU-Mc-aCY">
-                                <rect key="frame" x="10" y="96" width="301" height="349"/>
+                                <rect key="frame" x="10" y="96" width="301" height="329"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Report Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gh-UK-nde">
                                         <rect key="frame" x="0.0" y="32" width="301" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" white="0.61678832120000004" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxA-Cu-mxk">
                                         <rect key="frame" x="0.0" y="58" width="301" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DUE:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaa-7Z-lUa">
-                                        <rect key="frame" x="130" y="250" width="40" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date complete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7R-za-ZZl">
-                                        <rect key="frame" x="94" y="279" width="113" height="21"/>
+                                        <rect key="frame" x="20" y="270" width="261" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="amount" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sf1-am-o5v">
-                                        <rect key="frame" x="121" y="315" width="59" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DUE: amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sf1-am-o5v">
+                                        <rect key="frame" x="20" y="250" width="261" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xS5-TT-nmL">
@@ -738,7 +739,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDP-Ck-aOo">
-                                <rect key="frame" x="53" y="464" width="215" height="35"/>
+                                <rect key="frame" x="53" y="433" width="215" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="PaidButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -790,11 +791,12 @@
                         <outlet property="receiptImageView" destination="6k7-RD-PTB" id="fIC-u3-hTT"/>
                         <outlet property="reportLabel" destination="0Gh-UK-nde" id="11v-uY-N4q"/>
                         <outlet property="typeImageView" destination="JQ2-yh-eAH" id="1No-nY-fya"/>
+                        <outlet property="viewBg" destination="yjU-Mc-aCY" id="EeC-Cm-y08"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xhn-S9-x4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1245" y="-1713"/>
+            <point key="canvasLocation" x="-1232" y="-1260"/>
         </scene>
         <!--Navigation Controller - Activity-->
         <scene sceneID="phI-FT-5Y1">
@@ -864,16 +866,21 @@
         <image name="Grocery" width="50" height="50"/>
         <image name="Home" width="50" height="50"/>
         <image name="ImageBorder" width="55" height="55"/>
+        <image name="Income" width="50" height="50"/>
         <image name="IncomeButton" width="160" height="35"/>
         <image name="MapTabBar" width="25" height="22"/>
         <image name="Other" width="50" height="50"/>
         <image name="PaidButton" width="160" height="35"/>
         <image name="Transport" width="50" height="50"/>
         <image name="Utility" width="50" height="50"/>
+        <image name="receipt" width="256" height="256"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="dCQ-Ta-azK"/>
+    </inferredMetricsTieBreakers>
 </document>

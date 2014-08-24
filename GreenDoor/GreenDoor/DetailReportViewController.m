@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *paidButton;
 
 @property (weak, nonatomic) IBOutlet UIImageView *receiptImageView;
+@property (weak, nonatomic) IBOutlet UIView *viewBg;
 
 @end
 
@@ -29,7 +30,7 @@
     self.navigationController.navigationBarHidden = YES;
     self.typeImageView.image = [UIImage imageNamed:[self.object objectForKey:@"type"]];
     self.reportLabel.text = [self.object objectForKey:@"itemName"];
-    self.amountLabel.text = [self.object objectForKey:@"amount"];
+    self.amountLabel.text = [@"DUE: " stringByAppendingString:[NSString stringWithFormat:@"%@",[self.object objectForKey:@"amount"]]];
     self.descriptionLabel.text = [self.object objectForKey:@"description"];
 
 
@@ -37,6 +38,12 @@
                                                           dateStyle:NSDateFormatterMediumStyle
                                                           timeStyle:NSDateFormatterNoStyle];
     self.dateLabel.text = dateString;
+    if ([self.object objectForKey:@"file"]) {
+        PFFile *file = [self.object objectForKey:@"file"];
+        [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            self.receiptImageView.image = [UIImage imageWithData:data];
+        }];
+    }
     [self changePaidButton];
 
 
@@ -60,9 +67,17 @@
 
 -(void)changePaidButton
 {
+    if ([[self.object objectForKey:@"amount"] intValue] > 0) {
+        self.viewBg.backgroundColor = GREEN_COLOR;
+        self.paidButton.hidden = YES;
+        return;
+    }
+
     if ([[self.object objectForKey:@"paid"] intValue] == 1) {
+        self.viewBg.backgroundColor = GREEN_COLOR;
         [self.paidButton setImage:[UIImage imageNamed:@"PaidButton"] forState:UIControlStateNormal];
     } else {
+        self.viewBg.backgroundColor = RED_COLOR;
         [self.paidButton setImage:[UIImage imageNamed:@"UnpaidButton"] forState:UIControlStateNormal];
     }
 }

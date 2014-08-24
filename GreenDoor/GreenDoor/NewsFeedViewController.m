@@ -9,7 +9,6 @@
 #import "NewsFeedViewController.h"
 #import "LoginViewController.h"
 #import "SignupViewController.h"
-#import "EditReportViewController.h"
 #import "DetailReportViewController.h"
 #import "NewsCell.h"
 
@@ -41,6 +40,7 @@
         [self showLogin];
     } else {
         PFQuery* query = [PFQuery queryWithClassName:@"Report"];
+        [query orderByDescending:@"date"];
         [query whereKey:@"user" equalTo:[PFUser currentUser]];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
@@ -63,9 +63,12 @@
     PFObject* report = [self.reports objectAtIndex:indexPath.row];
     cell.backgroundImageView.layer.cornerRadius = 8.0;
     cell.reportNameLabel.text = report[@"itemName"];
-    cell.descriptionLabel.text = @"A description";
-    cell.dateLabel.text = @"August 23th";
-    cell.amountLabel.text = report[@"amount"];
+    cell.descriptionLabel.text = report[@"description"];
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:[report objectForKey:@"date"]
+                                                          dateStyle:NSDateFormatterMediumStyle
+                                                          timeStyle:NSDateFormatterNoStyle];
+    cell.dateLabel.text = dateString;
+    cell.amountLabel.text = [@"$" stringByAppendingString:report[@"amount"]];
     cell.typeImageView.image = [UIImage imageNamed:[report objectForKey:@"type"]];
     cell.rightBackgroundImageView.layer.cornerRadius = 8.0;
     if ([report[@"amount"] intValue] > 0) {
@@ -86,11 +89,11 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.destinationViewController isKindOfClass:[EditReportViewController class]]) {
-        EditReportViewController* ervc = segue.destinationViewController;
-        ervc.report = self.clickedReport;
-        ervc.comingFrom = @"doneEditing";
-    }
+//    if ([segue.destinationViewController isKindOfClass:[EditReportViewController class]]) {
+//        EditReportViewController* ervc = segue.destinationViewController;
+//        ervc.report = self.clickedReport;
+//        ervc.comingFrom = @"doneEditing";
+//    }
     if ([segue.identifier isEqualToString:@"detail"]) {
         NSLog(@"entro");
         DetailReportViewController *dvc = segue.destinationViewController;
