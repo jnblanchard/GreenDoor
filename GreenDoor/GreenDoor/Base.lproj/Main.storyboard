@@ -862,6 +862,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6k7-RD-PTB">
+                                        <rect key="frame" x="195" y="0.0" width="76" height="63"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -926,6 +930,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="dateLabel" destination="r7R-za-ZZl" id="yAU-lR-VZJ"/>
                         <outlet property="descriptionLabel" destination="mxA-Cu-mxk" id="kDZ-1k-Oqn"/>
                         <outlet property="paidButton" destination="fDP-Ck-aOo" id="Cgz-50-seP"/>
+                        <outlet property="receiptImageView" destination="6k7-RD-PTB" id="fIC-u3-hTT"/>
                         <outlet property="reportLabel" destination="0Gh-UK-nde" id="11v-uY-N4q"/>
                         <outlet property="typeImageView" destination="JQ2-yh-eAH" id="1No-nY-fya"/>
                     </connections>

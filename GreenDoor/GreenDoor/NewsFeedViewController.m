@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "SignupViewController.h"
 #import "EditReportViewController.h"
+#import "DetailReportViewController.h"
 #import "NewsCell.h"
 
 #import <Parse/Parse.h>
@@ -89,6 +90,10 @@
         EditReportViewController* ervc = segue.destinationViewController;
         ervc.report = self.clickedReport;
         ervc.comingFrom = @"doneEditing";
+    }
+    if ([segue.identifier isEqualToString:@"detail"]) {
+        DetailReportViewController *dvc = segue.destinationViewController;
+        dvc.object = self.clickedReport;
     }
 }
 
