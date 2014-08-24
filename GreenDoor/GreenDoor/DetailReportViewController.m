@@ -46,16 +46,22 @@
             self.receiptImageView.image = [UIImage imageWithData:data];
         }];
     }
-    [self changePaidButton];
+    UIImage *image = [UIImage imageNamed:@"PaidStamp"];
+    self.ImageViewWhore.image = image;
     [self putBadge];
+
+    [self changePaidButton];
 
 
 }
 
 - (void)putBadge
 {
-    UIImage *image = [UIImage imageNamed:@"PaidStamp"];
-    
+    if ([[self.object objectForKey:@"paid"] intValue] == 0) {
+        self.ImageViewWhore.hidden = YES;
+    } else {
+        self.ImageViewWhore.hidden = NO;
+    }
 }
 
 
@@ -71,6 +77,8 @@
     [self.object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
 
     }];
+    [self putBadge];
+
     [self changePaidButton];
 }
 
