@@ -99,8 +99,8 @@
             self.mapView.clipsToBounds = YES;
             self.mapView.layer.cornerRadius = 5;
             [self.mostInnerMap addSubview:label];
-            [self.mostInnerMap addSubview:incomeLabel];
-            [self.mostInnerMap addSubview:expenseLabel];
+//            [self.mostInnerMap addSubview:incomeLabel];
+//            [self.mostInnerMap addSubview:expenseLabel];
             CGFloat margin = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? 10.0 : 50.0;
             self.chart = [[ShinobiChart alloc] initWithFrame:CGRectInset(CGRectMake(15, 235, 289, 241), margin, margin)];
             self.chart.title = @"Reports: Line Graph";
