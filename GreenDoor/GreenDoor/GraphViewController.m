@@ -45,61 +45,66 @@
 
     PFQuery* query = [PFQuery queryWithClassName:@"Report"];
     [query orderByAscending:@"date"];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.dataArray = objects;
             [self.chart reloadData];
         }
-        NSMutableArray* array = [NSMutableArray new];
-        NSMutableArray* cashArray = [NSMutableArray new];
-        for (PFObject* report in self.dataArray) {
-            [array addObject:report[@"date"]];
-            [cashArray addObject:report[@"amount"]];
-        }
-        int min = [self findMinAmount:cashArray];
-        int max = [self findMaxAmount:cashArray];
-        self.minDate = [self findMinDate:array];
-        self.maxDate = [self findMaxDate:array];
-        self.negativeCash = 0;
-        int negCash = [self findNegativeCash:cashArray];
-        int posCash = [self findPositiveCash:cashArray];
-        self.totalCash = [self findTotalCash:cashArray];
-        self.percentageOfNegative = ((double)self.negativeCash) / self.totalCash;
-        int cashDifferential = negCash - posCash;
-        NSString* cash = [NSString stringWithFormat:@"%i", cashDifferential];
-        cash = [cash stringByReplacingOccurrencesOfString:@"-" withString:@""];
-        if (cashDifferential < 0) {
-            self.differentialLabel.textColor = [UIColor redColor];
-            self.differentialLabel.text = [NSString stringWithFormat:@"Revenue: $ -%@", cash];
+        if (self.dataArray.count != 0) {
+            NSMutableArray* array = [NSMutableArray new];
+            NSMutableArray* cashArray = [NSMutableArray new];
+            for (PFObject* report in self.dataArray) {
+                [array addObject:report[@"date"]];
+                [cashArray addObject:report[@"amount"]];
+            }
+            int min = [self findMinAmount:cashArray];
+            int max = [self findMaxAmount:cashArray];
+            self.minDate = [self findMinDate:array];
+            self.maxDate = [self findMaxDate:array];
+            self.negativeCash = 0;
+            int negCash = [self findNegativeCash:cashArray];
+            int posCash = [self findPositiveCash:cashArray];
+            self.totalCash = [self findTotalCash:cashArray];
+            self.percentageOfNegative = ((double)self.negativeCash) / self.totalCash;
+            int cashDifferential = negCash - posCash;
+            NSString* cash = [NSString stringWithFormat:@"%i", cashDifferential];
+            cash = [cash stringByReplacingOccurrencesOfString:@"-" withString:@""];
+            if (cashDifferential < 0) {
+                self.differentialLabel.textColor = [UIColor redColor];
+                self.differentialLabel.text = [NSString stringWithFormat:@"Revenue: $ -%@", cash];
+            } else {
+                self.differentialLabel.textColor = [UIColor greenColor];
+                self.differentialLabel.text = [NSString stringWithFormat:@"Revenue: $ %@", cash];
+            }
+            CGFloat width = self.view.bounds.size.width * self.percentageOfNegative;
+            CGFloat x = self.view.bounds.size.width - width;
+            UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(x , self.innerView.bounds.origin.y, width, self.differentialLabel.bounds.size.height+37)];
+            label.backgroundColor = [UIColor redColor];
+            [self.innerView addSubview:label];
+            CGFloat margin = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? 10.0 : 50.0;
+            self.chart = [[ShinobiChart alloc] initWithFrame:CGRectInset(CGRectMake(self.view.bounds.origin.x-10, self.view.bounds.origin.y+84, self.view.bounds.size.width+18, self.view.bounds.size.height - 125), margin, margin)];
+            self.chart.title = @"Reports: Line Graph";
+
+            self.chart.licenseKey = @"Yo4qzAHywKn0qvVMjAxNDA5MjJqbmJsYW5jaGFyZEBtYWMuY29trMV1GXfqeYP4GjjsB1dDDbPUmHVSHQkJAJQqpKM6feF5BrUFY8k9aaK4InUNRfCtQT+EgT4I851spCJLFzBtBEy/lawg0mAxLWtfyqR8Qw5EeWVuZkc37t0qyQeAlOmFrzGe/8eidlnpqaSLbS5xHt0bRNuM=BQxSUisl3BaWf/7myRmmlIjRnMU2cA7q+/03ZX9wdj30RzapYANf51ee3Pi8m2rVW6aD7t6Hi4Qy5vv9xpaQYXF5T7XzsafhzS3hbBokp36BoJZg8IrceBj742nQajYyV7trx5GIw9jy/V6r0bvctKYwTim7Kzq+YPWGMtqtQoU=PFJTQUtleVZhbHVlPjxNb2R1bHVzPnh6YlRrc2dYWWJvQUh5VGR6dkNzQXUrUVAxQnM5b2VrZUxxZVdacnRFbUx3OHZlWStBK3pteXg4NGpJbFkzT2hGdlNYbHZDSjlKVGZQTTF4S2ZweWZBVXBGeXgxRnVBMThOcDNETUxXR1JJbTJ6WXA3a1YyMEdYZGU3RnJyTHZjdGhIbW1BZ21PTTdwMFBsNWlSKzNVMDg5M1N4b2hCZlJ5RHdEeE9vdDNlMD08L01vZHVsdXM+PEV4cG9uZW50PkFRQUI8L0V4cG9uZW50PjwvUlNBS2V5VmFsdWU+"; // TODO: add your trial licence key here!
+            self.chart.autoresizingMask = ~UIViewAutoresizingNone;
+
+            SChartDateRange* dateRange = [[SChartDateRange alloc]initWithDateMinimum:self.minDate andDateMaximum:self.maxDate];
+            SChartDateTimeAxis* xAxis = [[SChartDateTimeAxis alloc]initWithRange:dateRange];
+            self.chart.xAxis = xAxis;
+
+
+
+            SChartNumberRange* rangeY = [[SChartNumberRange alloc]initWithMinimum:[NSNumber numberWithInt:min] andMaximum:[NSNumber numberWithInt:max]];
+            SChartNumberAxis *yAxis = [[SChartNumberAxis alloc] initWithRange:rangeY];
+            self.chart.yAxis = yAxis;
+            
+            [self.view addSubview:self.chart];
+            
+            self.chart.datasource = self;
         } else {
-            self.differentialLabel.textColor = [UIColor greenColor];
-            self.differentialLabel.text = [NSString stringWithFormat:@"Revenue: $ %@", cash];
+            self.differentialLabel.text = @"Enter your first report";
         }
-        CGFloat width = self.view.bounds.size.width * self.percentageOfNegative;
-        CGFloat x = self.view.bounds.size.width - width;
-        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(x , self.innerView.bounds.origin.y, width, self.differentialLabel.bounds.size.height+37)];
-        label.backgroundColor = [UIColor redColor];
-        [self.innerView addSubview:label];
-        CGFloat margin = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? 10.0 : 50.0;
-        self.chart = [[ShinobiChart alloc] initWithFrame:CGRectInset(CGRectMake(self.view.bounds.origin.x-10, self.view.bounds.origin.y+84, self.view.bounds.size.width+18, self.view.bounds.size.height - 125), margin, margin)];
-        self.chart.title = @"Reports: Line Graph";
-
-        self.chart.licenseKey = @"Yo4qzAHywKn0qvVMjAxNDA5MjJqbmJsYW5jaGFyZEBtYWMuY29trMV1GXfqeYP4GjjsB1dDDbPUmHVSHQkJAJQqpKM6feF5BrUFY8k9aaK4InUNRfCtQT+EgT4I851spCJLFzBtBEy/lawg0mAxLWtfyqR8Qw5EeWVuZkc37t0qyQeAlOmFrzGe/8eidlnpqaSLbS5xHt0bRNuM=BQxSUisl3BaWf/7myRmmlIjRnMU2cA7q+/03ZX9wdj30RzapYANf51ee3Pi8m2rVW6aD7t6Hi4Qy5vv9xpaQYXF5T7XzsafhzS3hbBokp36BoJZg8IrceBj742nQajYyV7trx5GIw9jy/V6r0bvctKYwTim7Kzq+YPWGMtqtQoU=PFJTQUtleVZhbHVlPjxNb2R1bHVzPnh6YlRrc2dYWWJvQUh5VGR6dkNzQXUrUVAxQnM5b2VrZUxxZVdacnRFbUx3OHZlWStBK3pteXg4NGpJbFkzT2hGdlNYbHZDSjlKVGZQTTF4S2ZweWZBVXBGeXgxRnVBMThOcDNETUxXR1JJbTJ6WXA3a1YyMEdYZGU3RnJyTHZjdGhIbW1BZ21PTTdwMFBsNWlSKzNVMDg5M1N4b2hCZlJ5RHdEeE9vdDNlMD08L01vZHVsdXM+PEV4cG9uZW50PkFRQUI8L0V4cG9uZW50PjwvUlNBS2V5VmFsdWU+"; // TODO: add your trial licence key here!
-        self.chart.autoresizingMask = ~UIViewAutoresizingNone;
-
-        SChartDateRange* dateRange = [[SChartDateRange alloc]initWithDateMinimum:self.minDate andDateMaximum:self.maxDate];
-        SChartDateTimeAxis* xAxis = [[SChartDateTimeAxis alloc]initWithRange:dateRange];
-        self.chart.xAxis = xAxis;
-
-
-
-        SChartNumberRange* rangeY = [[SChartNumberRange alloc]initWithMinimum:[NSNumber numberWithInt:min] andMaximum:[NSNumber numberWithInt:max]];
-        SChartNumberAxis *yAxis = [[SChartNumberAxis alloc] initWithRange:rangeY];
-        self.chart.yAxis = yAxis;
-
-        [self.view addSubview:self.chart];
-
-        self.chart.datasource = self;
     }];
 }
 
