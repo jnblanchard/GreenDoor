@@ -12,6 +12,8 @@
 
 #import "MapViewController.h"
 #import "BankViewController.h"
+#import "CEPViewController.h"
+
 @import MapKit;
 
 @interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
@@ -21,6 +23,9 @@
 @property NSMutableArray *bankArray;
 @property NSMutableArray *cepArray;
 @property NSMutableArray *annotationArray;
+
+@property UIImage *bankImage;
+@property UIImage *cepImage;
 
 @end
 
@@ -39,7 +44,7 @@
     [self.locationManager startUpdatingLocation];
     [self.mapView setRegion:MKCoordinateRegionMake(self.locationManager.location.coordinate, MKCoordinateSpanMake(0.4, 0.4))];
 
-
+    [self.bankImage]
 
 
 
@@ -158,6 +163,11 @@
                 break;
             }
         }
+
+    }
+
+    if ([segue.identifier isEqualToString:@"cep"]) {
+        CEPViewController *cvc = segue.destinationViewController;
 
     }
 }
