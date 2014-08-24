@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property CLLocationManager *locationManager;
 @property NSMutableArray *bankArray;
+@property NSMutableArray *annotationArray;
 
 @end
 
@@ -28,6 +29,7 @@
     // Do any additional setup after loading the view.
     self.mapView.showsUserLocation = YES;
     self.bankArray = [NSMutableArray new];
+    self.annotationArray = [NSMutableArray new];
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     [self.locationManager startUpdatingLocation];
@@ -39,7 +41,7 @@
 {
     MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
     request.region = self.mapView.region;
-    request.naturalLanguageQuery = @"bank";
+    request.naturalLanguageQuery = @"bar";
     MKLocalSearch *searchBank = [[MKLocalSearch alloc] initWithRequest:request];
     [searchBank startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
         if (response.mapItems.count == 0) {
@@ -49,6 +51,7 @@
             {
                 [self.bankArray addObject:item];
                 MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
+                [self.annotationArray addObject:annotation];
                 annotation.coordinate = item.placemark.coordinate;
                 annotation.title = item.name;
                 [self.mapView addAnnotation:annotation];
@@ -69,11 +72,15 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    MKPinAnnotationView *view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
-    view.image = [UIImage imageNamed:@"bankPin"];
-    view.canShowCallout = YES;
-    view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    return view;
+    if ([self.annotationArray containsObject:annotation]) {
+        MKPinAnnotationView *view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+        view.image = [UIImage imageNamed:@"bankPin"];
+        view.canShowCallout = YES;
+        view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        return view;
+    }
+    return nil;
+
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
@@ -93,12 +100,9 @@
 {
     if ([segue.identifier isEqualToString:@"bank"]) {
         MKPointAnnotation *point = sender;
-        NSLog(@"A: x:%f y:%f", point.coordinate.latitude, point.coordinate.longitude);
         for (MKMapItem *bankMapItem in self.bankArray) {
-            NSLog(@"x:%f y:%f", bankMapItem.placemark.coordinate.latitude, bankMapItem.placemark.coordinate.longitude);
 
             if (CLCOORDINATES_EQUAL(bankMapItem.placemark.coordinate, point.coordinate)) {
-                NSLog(@"entro!");
                 BankViewController *bvc = segue.destinationViewController;
                 bvc.bankMapItem = bankMapItem;
                 break;
