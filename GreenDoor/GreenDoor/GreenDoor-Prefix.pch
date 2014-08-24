@@ -13,4 +13,11 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+#define RED_COLOR [UIColor colorWithRed:1 green:0.51 blue:0.51 alpha:1]
+
+#define GREEN_COLOR [UIColor colorWithRed:0.72 green:0.91 blue:0.53 alpha:1]
+
+
+
+#define NAVBAR_COLOR [UIColor colorWithRed:0.72 green:0.91 blue:0.53 alpha:1]
 #endif

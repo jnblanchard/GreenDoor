@@ -10,6 +10,8 @@
 #import "LoginViewController.h"
 #import "SignupViewController.h"
 #import "EditReportViewController.h"
+#import "NewsCell.h"
+
 #import <Parse/Parse.h>
 
 
@@ -56,11 +58,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    NewsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     PFObject* report = [self.reports objectAtIndex:indexPath.row];
-    cell.textLabel.text = report[@"itemName"];
-    cell.detailTextLabel.text = report[@"amount"];
+    cell.backgroundImageView.layer.cornerRadius = 8.0;
+    cell.reportNameLabel.text = report[@"itemName"];
+    cell.descriptionLabel.text = @"A description";
+    cell.dateLabel.text = @"August 23th";
+    cell.amountLabel.text = report[@"amount"];
+    cell.typeImageView.image = [UIImage imageNamed:[report objectForKey:@"type"]];
+    cell.rightBackgroundImageView.layer.cornerRadius = 8.0;
+    if ([report[@"amount"] intValue] > 0) {
+        cell.rightBackgroundImageView.backgroundColor = GREEN_COLOR;
+    } else {
+        cell.rightBackgroundImageView.backgroundColor = RED_COLOR;
+    }
+
     return cell;
+    return nil;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
