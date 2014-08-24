@@ -54,6 +54,7 @@
 		4285945A19A9A0DD00F7C74F /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285945919A9A0DD00F7C74F /* NewsCell.m */; };
 		4285945D19A9B86E00F7C74F /* CalendarViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285945C19A9B86E00F7C74F /* CalendarViewCell.m */; };
 		4285946019A9C8D500F7C74F /* DetailReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285945F19A9C8D500F7C74F /* DetailReportViewController.m */; };
+		4285946219AA748F00F7C74F /* Map.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4285946119AA748F00F7C74F /* Map.xcassets */; };
 		E486168819A8FDBE008F08EC /* NewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168719A8FDBE008F08EC /* NewsFeedViewController.m */; };
 		E486168B19A8FE11008F08EC /* CalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168A19A8FE11008F08EC /* CalenderViewController.m */; };
 		E486168E19A9032D008F08EC /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168D19A9032D008F08EC /* AddViewController.m */; };
@@ -138,6 +139,7 @@
 		4285945C19A9B86E00F7C74F /* CalendarViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewCell.m; sourceTree = "<group>"; };
 		4285945E19A9C8D500F7C74F /* DetailReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailReportViewController.h; sourceTree = "<group>"; };
 		4285945F19A9C8D500F7C74F /* DetailReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailReportViewController.m; sourceTree = "<group>"; };
+		4285946119AA748F00F7C74F /* Map.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Map.xcassets; sourceTree = "<group>"; };
 		E486168619A8FDBE008F08EC /* NewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedViewController.h; sourceTree = "<group>"; };
 		E486168719A8FDBE008F08EC /* NewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedViewController.m; sourceTree = "<group>"; };
 		E486168919A8FE11008F08EC /* CalenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderViewController.h; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				0BF1BE4E19A8E5FE000ABA27 /* AppDelegate.h */,
 				0BF1BE4F19A8E5FE000ABA27 /* AppDelegate.m */,
 				0BF1BE5119A8E5FE000ABA27 /* Main.storyboard */,
+				4285946119AA748F00F7C74F /* Map.xcassets */,
 				0BF0DD2B19A9957400B2893A /* OurBarTabViewController.h */,
 				0BF0DD2C19A9957400B2893A /* OurBarTabViewController.m */,
 				0BF0DCCF19A9453E00B2893A /* GraphViewController.h */,
@@ -403,6 +406,7 @@
 				0BF1BE5819A8E5FE000ABA27 /* Images.xcassets in Resources */,
 				0BF1BE4A19A8E5FE000ABA27 /* InfoPlist.strings in Resources */,
 				0BF1BE5319A8E5FE000ABA27 /* Main.storyboard in Resources */,
+				4285946219AA748F00F7C74F /* Map.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

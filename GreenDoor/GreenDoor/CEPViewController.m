@@ -16,6 +16,13 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *hourSegmentedControl;
 @property (weak, nonatomic) IBOutlet UITextField *detailsTextField;
 
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UIButton *monday;
+@property (weak, nonatomic) IBOutlet UIButton *wednesday;
+@property (weak, nonatomic) IBOutlet UIButton *five;
+@property (weak, nonatomic) IBOutlet UIButton *fivehalf;
+@property (weak, nonatomic) IBOutlet UIButton *six;
+
 @end
 
 @implementation CEPViewController
@@ -28,6 +35,8 @@
     PFGeoPoint *geoPoint = [self.cepPFObject objectForKey:@"location"];
     point.coordinate = CLLocationCoordinate2DMake(geoPoint.latitude, geoPoint.longitude);
     [self.mapView addAnnotation:point];
+    self.bgView.layer.cornerRadius = 6.0;
+    self.bgView.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
     // Do any additional setup after loading the view.
 }
 
@@ -62,6 +71,16 @@
     // Present mail view controller on screen
     [self presentViewController:mc animated:YES completion:NULL];
 }
+- (IBAction)monday:(id)sender {
+}
+- (IBAction)wednesday:(id)sender {
+}
+- (IBAction)five:(id)sender {
+}
+- (IBAction)fiveHalf:(id)sender {
+}
+- (IBAction)six:(id)sender {
+}
 
 
 - (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
@@ -86,5 +105,7 @@
 
     // Close the Mail Interface
     [self dismissViewControllerAnimated:YES completion:NULL];
+
+
 }
 @end
