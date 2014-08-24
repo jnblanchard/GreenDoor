@@ -56,6 +56,8 @@
             [array addObject:report[@"date"]];
             [cashArray addObject:report[@"amount"]];
         }
+        int min = [self findMinAmount:cashArray];
+        int max = [self findMaxAmount:cashArray];
         self.minDate = [self findMinDate:array];
         self.maxDate = [self findMaxDate:array];
         self.negativeCash = 0;
@@ -89,7 +91,9 @@
         SChartDateTimeAxis* xAxis = [[SChartDateTimeAxis alloc]initWithRange:dateRange];
         self.chart.xAxis = xAxis;
 
-        SChartNumberRange* rangeY = [[SChartNumberRange alloc]initWithMinimum:[NSNumber numberWithInteger:-3000] andMaximum:[NSNumber numberWithInteger:3000]];
+
+
+        SChartNumberRange* rangeY = [[SChartNumberRange alloc]initWithMinimum:[NSNumber numberWithInt:min] andMaximum:[NSNumber numberWithInt:max]];
         SChartNumberAxis *yAxis = [[SChartNumberAxis alloc] initWithRange:rangeY];
         self.chart.yAxis = yAxis;
 
@@ -157,6 +161,32 @@
         total += newString.intValue;
     }
     return total;
+}
+
+-(int)findMinAmount:(NSMutableArray*)array
+{
+    NSString* stringVal = array.firstObject;
+    int min = stringVal.intValue;
+    for (NSString *amount in array) {
+        int amountInt = amount.intValue;
+        if (amountInt < min) {
+            min = amountInt;
+        }
+    }
+    return min-750;
+}
+
+-(int)findMaxAmount:(NSMutableArray*)array
+{
+    NSString* stringVal = array.firstObject;
+    int max = stringVal.intValue;
+    for (NSString *amount in array) {
+        int amountInt = amount.intValue;
+        if (amountInt > max) {
+            max = amountInt;
+        }
+    }
+    return max+750;
 }
 
 -(NSDate*)findMinDate:(NSArray*)array
