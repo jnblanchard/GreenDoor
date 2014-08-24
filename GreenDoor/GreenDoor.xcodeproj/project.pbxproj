@@ -51,6 +51,8 @@
 		4285944D19A93B9600F7C74F /* BankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285944C19A93B9600F7C74F /* BankViewController.m */; };
 		4285944F19A93C7100F7C74F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4285944E19A93C7100F7C74F /* MapKit.framework */; };
 		4285945219A9844500F7C74F /* CEPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285945119A9844500F7C74F /* CEPViewController.m */; };
+		4285945419A997B600F7C74F /* NewsCatalog.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4285945319A997B600F7C74F /* NewsCatalog.xcassets */; };
+		4285945719A9983200F7C74F /* NewsFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285945619A9983200F7C74F /* NewsFeedCell.m */; };
 		E486168819A8FDBE008F08EC /* NewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168719A8FDBE008F08EC /* NewsFeedViewController.m */; };
 		E486168B19A8FE11008F08EC /* CalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168A19A8FE11008F08EC /* CalenderViewController.m */; };
 		E486168E19A9032D008F08EC /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168D19A9032D008F08EC /* AddViewController.m */; };
@@ -130,6 +132,9 @@
 		4285944E19A93C7100F7C74F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4285945019A9844500F7C74F /* CEPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPViewController.h; sourceTree = "<group>"; };
 		4285945119A9844500F7C74F /* CEPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPViewController.m; sourceTree = "<group>"; };
+		4285945319A997B600F7C74F /* NewsCatalog.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = NewsCatalog.xcassets; sourceTree = "<group>"; };
+		4285945519A9983200F7C74F /* NewsFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedCell.h; sourceTree = "<group>"; };
+		4285945619A9983200F7C74F /* NewsFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedCell.m; sourceTree = "<group>"; };
 		E486168619A8FDBE008F08EC /* NewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedViewController.h; sourceTree = "<group>"; };
 		E486168719A8FDBE008F08EC /* NewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedViewController.m; sourceTree = "<group>"; };
 		E486168919A8FE11008F08EC /* CalenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderViewController.h; sourceTree = "<group>"; };
@@ -244,6 +249,7 @@
 				E486168919A8FE11008F08EC /* CalenderViewController.h */,
 				E486168A19A8FE11008F08EC /* CalenderViewController.m */,
 				E486168619A8FDBE008F08EC /* NewsFeedViewController.h */,
+				4285945319A997B600F7C74F /* NewsCatalog.xcassets */,
 				E486168719A8FDBE008F08EC /* NewsFeedViewController.m */,
 				0BF1BE5419A8E5FE000ABA27 /* ViewController.h */,
 				0BF1BE5519A8E5FE000ABA27 /* ViewController.m */,
@@ -261,6 +267,8 @@
 				4285945119A9844500F7C74F /* CEPViewController.m */,
 				4285944B19A93B9600F7C74F /* BankViewController.h */,
 				4285944C19A93B9600F7C74F /* BankViewController.m */,
+				4285945519A9983200F7C74F /* NewsFeedCell.h */,
+				4285945619A9983200F7C74F /* NewsFeedCell.m */,
 			);
 			path = GreenDoor;
 			sourceTree = "<group>";
@@ -386,6 +394,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4285945419A997B600F7C74F /* NewsCatalog.xcassets in Resources */,
 				0BF1BE5819A8E5FE000ABA27 /* Images.xcassets in Resources */,
 				0BF1BE4A19A8E5FE000ABA27 /* InfoPlist.strings in Resources */,
 				0BF1BE5319A8E5FE000ABA27 /* Main.storyboard in Resources */,
@@ -425,6 +434,7 @@
 				4285944A19A93B3500F7C74F /* MapViewController.m in Sources */,
 				0BB956E919A90EEE003478D0 /* SignupViewController.m in Sources */,
 				E486168819A8FDBE008F08EC /* NewsFeedViewController.m in Sources */,
+				4285945719A9983200F7C74F /* NewsFeedCell.m in Sources */,
 				4285945219A9844500F7C74F /* CEPViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
