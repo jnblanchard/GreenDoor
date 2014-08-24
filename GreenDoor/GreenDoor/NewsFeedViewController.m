@@ -113,7 +113,7 @@
 
 
 
-    PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
+    SignupViewController *signUpViewController = [[SignupViewController alloc] init];
 
     signUpViewController.fields = PFSignUpFieldsUsernameAndPassword | PFSignUpFieldsEmail | PFSignUpFieldsSignUpButton | PFSignUpFieldsDismissButton | PFSignUpFieldsAdditional | PFSignUpFieldsDefault;
 

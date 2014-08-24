@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"applogo2"]]];
+
 }
 
 - (void)didReceiveMemoryWarning
