@@ -621,6 +621,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="goEndOnExit:" destination="tOa-EH-oK4" eventType="editingDidEndOnExit" id="K6P-BA-hFl"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Il7-Ig-CqW">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>

@@ -37,6 +37,9 @@
     [self.mapView addAnnotation:point];
     self.bgView.layer.cornerRadius = 6.0;
     self.bgView.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
+    self.wednesday.alpha = 0.5;
+    self.fivehalf.alpha = 0.5;
+    self.six.alpha = 0.5;
     // Do any additional setup after loading the view.
 }
 
@@ -72,14 +75,27 @@
     [self presentViewController:mc animated:YES completion:NULL];
 }
 - (IBAction)monday:(id)sender {
+    self.wednesday.alpha = 0.5;
+    self.monday.alpha = 1;
 }
 - (IBAction)wednesday:(id)sender {
+    self.monday.alpha = 0.5;
+    self.wednesday.alpha = 1;
 }
 - (IBAction)five:(id)sender {
+    self.five.alpha = 1;
+    self.fivehalf.alpha = 0.5;
+    self.six.alpha = 0.5;
 }
 - (IBAction)fiveHalf:(id)sender {
+    self.five.alpha = 0.5;
+    self.fivehalf.alpha = 1;
+    self.six.alpha = 0.5;
 }
 - (IBAction)six:(id)sender {
+    self.five.alpha = 0.5;
+    self.fivehalf.alpha = 0.5;
+    self.six.alpha = 1;
 }
 
 
@@ -109,5 +125,10 @@
 
 }
 - (IBAction)makeCall:(id)sender {
+    NSString *phoneNumber = [@"tel://" stringByAppendingString:@"111111111"];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+}
+- (IBAction)goEndOnExit:(id)sender {
+    [self resignFirstResponder];
 }
 @end
