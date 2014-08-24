@@ -49,6 +49,7 @@
     }
     UIImage *image = [UIImage imageNamed:@"PaidStamp"];
     self.ImageViewWhore.image = image;
+    self.bottomView.layer.cornerRadius = 8.0;
     [self putBadge];
 
     [self changePaidButton];
@@ -92,10 +93,10 @@
     }
 
     if ([[self.object objectForKey:@"paid"] intValue] == 1) {
-        self.viewBg.backgroundColor = GREEN_COLOR;
+        self.bottomView.backgroundColor = GREEN_COLOR;
         [self.paidButton setImage:[UIImage imageNamed:@"PaidButton"] forState:UIControlStateNormal];
     } else {
-        self.viewBg.backgroundColor = RED_COLOR;
+        self.bottomView.backgroundColor = RED_COLOR;
         [self.paidButton setImage:[UIImage imageNamed:@"UnpaidButton"] forState:UIControlStateNormal];
     }
 }
