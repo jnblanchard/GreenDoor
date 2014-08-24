@@ -16,6 +16,7 @@
 		0BF0DD2619A9522400B2893A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF0DD2519A9522400B2893A /* CoreText.framework */; };
 		0BF0DD2819A9522F00B2893A /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF0DD2719A9522F00B2893A /* libc++.dylib */; };
 		0BF0DD2A19A9559800B2893A /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF0DD2919A9559800B2893A /* ShinobiCharts.framework */; };
+		0BF0DD2D19A9957400B2893A /* OurBarTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0DD2C19A9957400B2893A /* OurBarTabViewController.m */; };
 		0BF1BE4019A8E5FD000ABA27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF1BE3F19A8E5FD000ABA27 /* Foundation.framework */; };
 		0BF1BE4219A8E5FD000ABA27 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF1BE4119A8E5FD000ABA27 /* CoreGraphics.framework */; };
 		0BF1BE4419A8E5FD000ABA27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF1BE4319A8E5FD000ABA27 /* UIKit.framework */; };
@@ -79,6 +80,8 @@
 		0BF0DD2519A9522400B2893A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		0BF0DD2719A9522F00B2893A /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		0BF0DD2919A9559800B2893A /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShinobiCharts.framework; sourceTree = "<group>"; };
+		0BF0DD2B19A9957400B2893A /* OurBarTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OurBarTabViewController.h; sourceTree = "<group>"; };
+		0BF0DD2C19A9957400B2893A /* OurBarTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OurBarTabViewController.m; sourceTree = "<group>"; };
 		0BF1BE3C19A8E5FD000ABA27 /* GreenDoor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenDoor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF1BE3F19A8E5FD000ABA27 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0BF1BE4119A8E5FD000ABA27 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -230,6 +233,8 @@
 				0BF1BE4E19A8E5FE000ABA27 /* AppDelegate.h */,
 				0BF1BE4F19A8E5FE000ABA27 /* AppDelegate.m */,
 				0BF1BE5119A8E5FE000ABA27 /* Main.storyboard */,
+				0BF0DD2B19A9957400B2893A /* OurBarTabViewController.h */,
+				0BF0DD2C19A9957400B2893A /* OurBarTabViewController.m */,
 				0BF0DCCF19A9453E00B2893A /* GraphViewController.h */,
 				0BF0DCD019A9453E00B2893A /* GraphViewController.m */,
 				0B626B1F19A92AC7006C81F9 /* EditReportViewController.h */,
@@ -402,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BF0DD2D19A9957400B2893A /* OurBarTabViewController.m in Sources */,
 				4285944419A914C800F7C74F /* PDTSimpleCalendarViewHeader.m in Sources */,
 				E486168B19A8FE11008F08EC /* CalenderViewController.m in Sources */,
 				0BF1BE5619A8E5FE000ABA27 /* ViewController.m in Sources */,
