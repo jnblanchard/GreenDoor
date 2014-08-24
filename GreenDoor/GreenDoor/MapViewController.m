@@ -88,6 +88,7 @@
             MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
             PFGeoPoint *geoPoint = [place objectForKey:@"location"];
             point.coordinate = CLLocationCoordinate2DMake(geoPoint.latitude, geoPoint.longitude);
+            point.title = [place objectForKey:@"name"];
             [self.mapView addAnnotation:point];
             [self.annotationCepArray addObject:point];
         }
@@ -137,8 +138,12 @@
         view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         return view;
     }
-    if ([self.cepArray containsObject:annotation]) {
-
+    if ([self.annotationCepArray containsObject:annotation]) {
+        MKPinAnnotationView *view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+        view.image = self.cepImage;
+        view.canShowCallout = YES;
+        view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        return view;
     }
     return nil;
 
@@ -146,11 +151,18 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    [self performSegueWithIdentifier:@"bank" sender:view.annotation];
+    MKPinAnnotationView *pin = (MKPinAnnotationView *)view;
+    if ([pin.image isEqual:self.bankImage]) {
+        [self performSegueWithIdentifier:@"bank" sender:view.annotation];
+    }
+    if ([pin.image isEqual:self.cepImage]) {
+        [self performSegueWithIdentifier:@"cep" sender:view.annotation];
+    }
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
+    NSLog(@"go!");
     CLLocationCoordinate2D coords =  view.annotation.coordinate;
     MKCoordinateSpan span = MKCoordinateSpanMake(0.02, 0.02);
     MKCoordinateRegion coordinateRegion = MKCoordinateRegionMake(coords, span);
