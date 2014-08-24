@@ -45,8 +45,10 @@
     NSString *emailTitle = [NSString stringWithFormat:@"Appointment for CEP: %@",[PFUser currentUser].username];
     // Email Content
     NSString *body = [self.hourSegmentedControl titleForSegmentAtIndex:self.hourSegmentedControl.selectedSegmentIndex];
-    [body stringByAppendingString:@" "];
-    [body stringByAppendingString:[self.hourSegmentedControl titleForSegmentAtIndex:self.daySegmentedControl.selectedSegmentIndex]];
+    body = [body stringByAppendingString:@" "];
+    body = [body stringByAppendingString:[self.daySegmentedControl titleForSegmentAtIndex:self.daySegmentedControl.selectedSegmentIndex]];
+    body = [body stringByAppendingString:@"\n"];
+    body = [body stringByAppendingString:self.detailsTextField.text];
     NSString *messageBody = body;
     // To address
     NSArray *toRecipents = [NSArray arrayWithObject:@"ivanruizmonjo@gmail.com"];

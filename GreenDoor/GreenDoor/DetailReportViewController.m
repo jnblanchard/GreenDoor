@@ -47,8 +47,15 @@
         }];
     }
     [self changePaidButton];
+    [self putBadge];
 
 
+}
+
+- (void)putBadge
+{
+    UIImage *image = [UIImage imageNamed:@"PaidStamp"];
+    
 }
 
 
