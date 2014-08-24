@@ -12,6 +12,9 @@
 
 
 @interface GraphViewController () <SChartDatasource>
+@property (weak, nonatomic) IBOutlet UILabel *incomeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *differentialLabel;
+@property (weak, nonatomic) IBOutlet UIView *innerView;
 @property ShinobiChart* chart;
 @property ShinobiChart* chartTwo;
 @property NSArray* dataArray;
