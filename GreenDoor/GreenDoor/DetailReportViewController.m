@@ -21,6 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *receiptImageView;
 @property (weak, nonatomic) IBOutlet UIView *viewBg;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
 
 @end
 
