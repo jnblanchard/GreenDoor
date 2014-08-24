@@ -81,7 +81,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.clickedReport = [self.reports objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"editReport" sender:self];
+    //[self performSegueWithIdentifier:@"detail" sender:self];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -92,8 +92,10 @@
         ervc.comingFrom = @"doneEditing";
     }
     if ([segue.identifier isEqualToString:@"detail"]) {
+        NSLog(@"entro");
         DetailReportViewController *dvc = segue.destinationViewController;
-        dvc.object = self.clickedReport;
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        dvc.object = [self.reports objectAtIndex:indexPath.row];
     }
 }
 

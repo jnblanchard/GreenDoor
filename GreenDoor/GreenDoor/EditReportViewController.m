@@ -8,13 +8,14 @@
 
 #import "EditReportViewController.h"
 
-@interface EditReportViewController () <UINavigationControllerDelegate>
+@interface EditReportViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *typeSegmentedControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *rateSegmentedControl;
 @property (weak, nonatomic) IBOutlet UITextField *amountTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UITextField *itemTextField;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UIImageView *receiptImageView;
 @end
 
 @implementation EditReportViewController
@@ -62,8 +63,20 @@
     if ([self.report[@"rate"] isEqualToString:@"Yearly"]) {
         self.rateSegmentedControl.selectedSegmentIndex = 3;
     }
-    // Do any additional setup after loading the view.
+
+
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(receiptAction:)];
+    [self.receiptImageView addGestureRecognizer:tapGestureRecognizer];
+    if ([self.report objectForKey:@"receipt"]) {
+        PFFile *file = [self.report objectForKey:@"receipt"];
+        [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            self.receiptImageView.image = [UIImage imageWithData:data];
+        }];
+    }
 }
+
+
+
 
 - (IBAction)editingDidEnd:(id)sender
 {

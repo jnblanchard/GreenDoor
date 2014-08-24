@@ -26,25 +26,50 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.typeImageView.image = [self.object objectForKey:@"type"];
+    self.navigationController.navigationBarHidden = YES;
+    self.typeImageView.image = [UIImage imageNamed:[self.object objectForKey:@"type"]];
     self.reportLabel.text = [self.object objectForKey:@"itemName"];
-    self.dateLabel.text = [self.object objectForKey:@"date"];
     self.amountLabel.text = [self.object objectForKey:@"amount"];
     self.descriptionLabel.text = [self.object objectForKey:@"description"];
-    
-    // Do any additional setup after loading the view.
-    
-}
-- (IBAction)paidButtonPressed:(id)sender {
+
+
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:[self.object objectForKey:@"date"]
+                                                          dateStyle:NSDateFormatterMediumStyle
+                                                          timeStyle:NSDateFormatterNoStyle];
+    self.dateLabel.text = dateString;
+    [self changePaidButton];
+
+
 }
 
-- (void)didReceiveMemoryWarning
+
+
+
+- (IBAction)paidButtonPressed:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if ([[self.object objectForKey:@"paid"] intValue] == 1) {
+        [self.object setValue:@0 forKey:@"paid"];
+    } else {
+        [self.object setValue:@1 forKey:@"paid"];
+    }
+    [self.object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+
+    }];
+    [self changePaidButton];
 }
+
+-(void)changePaidButton
+{
+    if ([[self.object objectForKey:@"paid"] intValue] == 1) {
+        [self.paidButton setImage:[UIImage imageNamed:@"PaidButton"] forState:UIControlStateNormal];
+    } else {
+        [self.paidButton setImage:[UIImage imageNamed:@"UnpaidButton"] forState:UIControlStateNormal];
+    }
+}
+
+
 - (IBAction)backButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*
