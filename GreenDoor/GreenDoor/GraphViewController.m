@@ -81,7 +81,7 @@
             }
             CGFloat width = self.incomeLabel.bounds.size.width * self.percentageOfNegative;
             CGFloat x = self.incomeLabel.bounds.size.width - width;
-            UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(x , self.incomeLabel.bounds.origin.y+71, width+12, self.incomeLabel.bounds.size.height)];
+            UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(x+20 , self.incomeLabel.bounds.origin.y+71, width-8, self.incomeLabel.bounds.size.height)];
             self.incomeLabel.backgroundColor = GREEN_COLOR;
             label.backgroundColor = RED_COLOR;
             self.incomeLabel.clipsToBounds = YES;
