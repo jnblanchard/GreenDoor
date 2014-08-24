@@ -304,6 +304,13 @@
     return datapoint;
 }
 
+- (void)sChart:(ShinobiChart *)chart toggledSelectionForPoint:(SChartDataPoint *)dataPoint inSeries:(SChartSeries *)series atPixelCoordinate:(CGPoint)pixelPoint
+{
+
+}
+
+
+
 
 
 
