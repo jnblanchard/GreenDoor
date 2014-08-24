@@ -703,13 +703,13 @@
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t01-RP-XMS">
                                                 <rect key="frame" x="12" y="153" width="280" height="230"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8GH-5b-kcC">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
@@ -733,6 +733,7 @@
                         <outlet property="differentialLabel" destination="C2A-as-hbp" id="jwi-Xx-rXX"/>
                         <outlet property="incomeLabel" destination="y2J-Td-EGo" id="KQN-ab-lPJ"/>
                         <outlet property="innerView" destination="2wB-Sj-3jn" id="mgY-6Z-WU9"/>
+                        <outlet property="mapView" destination="t01-RP-XMS" id="NDW-kV-bIG"/>
                         <outlet property="mostInnerMap" destination="swL-ij-g4t" id="Iu5-73-D7f"/>
                     </connections>
                 </viewController>
@@ -878,10 +879,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="5Ig-z0-JoF"/>
                     <connections>
+                        <outlet property="ImageViewWhore" destination="2VJ-tu-Ys3" id="tOU-h8-m7K"/>
                         <outlet property="amountLabel" destination="Sf1-am-o5v" id="DpX-1I-jgw"/>
                         <outlet property="dateLabel" destination="r7R-za-ZZl" id="yAU-lR-VZJ"/>
                         <outlet property="descriptionLabel" destination="mxA-Cu-mxk" id="kDZ-1k-Oqn"/>
-                        <outlet property="newImageViewWhore" destination="2VJ-tu-Ys3" id="YQP-ll-0Kg"/>
                         <outlet property="paidButton" destination="fDP-Ck-aOo" id="Cgz-50-seP"/>
                         <outlet property="receiptImageView" destination="6k7-RD-PTB" id="fIC-u3-hTT"/>
                         <outlet property="reportLabel" destination="0Gh-UK-nde" id="11v-uY-N4q"/>

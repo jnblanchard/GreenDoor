@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *incomeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *differentialLabel;
 @property (weak, nonatomic) IBOutlet UIView *innerView;
+@property (weak, nonatomic) IBOutlet UIView *mapView;
 @property ShinobiChart* chart;
 @property ShinobiChart* chartTwo;
 @property NSArray* dataArray;
@@ -99,7 +100,7 @@
             [self.mostInnerMap addSubview:incomeLabel];
             [self.mostInnerMap addSubview:expenseLabel];
             CGFloat margin = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? 10.0 : 50.0;
-            self.chart = [[ShinobiChart alloc] initWithFrame:CGRectInset(CGRectMake(self.mostInnerMap.bounds.origin.x-10, self.view.bounds.origin.y+250, self.mostInnerMap.bounds.size.width, self.view.bounds.size.height - 300), margin, margin)];
+            self.chart = [[ShinobiChart alloc] initWithFrame:CGRectInset(CGRectMake(self.mapView.bounds.origin.x-10, self.mapView.bounds.origin.y, self.mapView.bounds.size.width, self.mapView.bounds.size.height), margin, margin)];
             self.chart.title = @"Reports: Line Graph";
             [self.chart applyTheme:[SChartLightTheme new]];
             SChartTitlePosition pos = SChartTitlePositionCenter;
