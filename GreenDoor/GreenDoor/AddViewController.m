@@ -274,7 +274,7 @@
     if ([self.amountTextField.text hasPrefix:@"-"]) {
         self.amountTextField.text = [self.amountTextField.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
     }
-    self.amountTextField.backgroundColor = [UIColor greenColor];
+    self.amountTextField.backgroundColor = GREEN_COLOR;
     self.amountTextField.textColor = [UIColor whiteColor];
     self.homeImageView.hidden = YES;
     self.otherImageView.hidden = YES;
@@ -293,7 +293,7 @@
 
         }
     self.amountTextField.textColor = [UIColor whiteColor];
-    self.amountTextField.backgroundColor = [UIColor redColor];
+    self.amountTextField.backgroundColor = RED_COLOR;
     self.homeImageView.hidden = NO;
     self.otherImageView.hidden = NO;
     self.utilityImageView.hidden = NO;
