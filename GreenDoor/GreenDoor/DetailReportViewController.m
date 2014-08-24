@@ -91,7 +91,10 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"detail"]) {
+    NSLog(@"entro 1");
+    NSLog(@"segue id %@",segue.identifier);
+    if ([segue.identifier isEqualToString:@"edit"]) {
+        NSLog(@"entro2");
         AddViewController *addVC = segue.destinationViewController;
         addVC.object = self.object;
     }

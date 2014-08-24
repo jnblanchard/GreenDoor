@@ -38,10 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"obj %@", self.object);
-    if (self.object) {
-        [self loadFromObject];
-    }
+
     self.theUser = [PFUser currentUser];
     self.validAmount = NO;
     self.validItem = NO;
@@ -68,6 +65,9 @@
 
     [self resetSwitchts];
     [self switchUtility:nil];
+    if (self.object) {
+        [self loadFromObject];
+    }
 }
 
 - (void)loadFromObject
@@ -99,6 +99,32 @@
     if ([rate isEqualToString:@"Yearly"]) {
         self.rateSegmentedControl.selectedSegmentIndex = 3;
     }
+    NSString *type = [self.object objectForKey:@"type"];
+
+    if ([type isEqualToString:@"Grocery"]) {
+        [self switchGrocery:nil];
+    }
+    if ([type isEqualToString:@"Transport"]) {
+        [self switchTransport:nil];
+    }
+    if ([type isEqualToString:@"Home"]) {
+        NSLog(@"entro home!");
+        [self switchHome:nil];
+    }
+    if ([type isEqualToString:@"Utility"]) {
+        [self switchUtility:nil];
+    }
+    if ([type isEqualToString:@"Other"]) {
+        [self switchOther:nil];
+    }
+    if ([[self.object objectForKey:@"amount"] intValue] > 0) {
+        [self incomeButton:nil];
+    } else {
+        [self expenseButton:nil];
+    }
+    self.validAmount = YES;
+    self.validDescription = YES;
+    self.validItem = YES;
 }
 
 - (IBAction)showDatePicker:(id)sender
@@ -264,9 +290,10 @@
 
         if (![self.amountTextField.text hasPrefix:@"-"]) {
             self.amountTextField.text = [@"-" stringByAppendingString:self.amountTextField.text];
-            self.amountTextField.textColor = [UIColor whiteColor];
-            self.amountTextField.backgroundColor = [UIColor redColor];
+
         }
+    self.amountTextField.textColor = [UIColor whiteColor];
+    self.amountTextField.backgroundColor = [UIColor redColor];
     self.homeImageView.hidden = NO;
     self.otherImageView.hidden = NO;
     self.utilityImageView.hidden = NO;
@@ -297,6 +324,9 @@
     if(self.validAmount && self.validDescription && self.validItem)
     {
         PFObject* aReport = [PFObject objectWithClassName:@"Report"];
+        if (self.object) {
+            aReport = self.object;
+        }
         aReport[@"itemName"] = self.itemTextField.text;
         aReport[@"description"] = self.descriptionTextField.text;
         aReport[@"amount"] = self.amountTextField.text;
@@ -327,7 +357,7 @@
                 self.amountTextField.backgroundColor = [UIColor whiteColor];
                 self.amountTextField.textColor = [UIColor blackColor];
                 self.validDescription = NO;
-                self.receiptImageView.image = nil;
+                self.receiptImageView.image = [UIImage imageNamed:@"receipt"];
                 self.descriptionTextField.text = @"";
                 [self resetSwitchts];
                 [self switchUtility:nil];
