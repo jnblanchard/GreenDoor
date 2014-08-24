@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 John Blanchard. All rights reserved.
 //
 
+#import <Parse/Parse.h>
+
 #define CLCOORDINATES_EQUAL( coord1, coord2 ) (coord1.latitude == coord2.latitude && coord1.longitude == coord2.longitude)
 
 #import "MapViewController.h"
@@ -17,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property CLLocationManager *locationManager;
 @property NSMutableArray *bankArray;
+@property NSMutableArray *cepArray;
 @property NSMutableArray *annotationArray;
 
 @end
@@ -31,17 +34,64 @@
     self.bankArray = [NSMutableArray new];
     self.annotationArray = [NSMutableArray new];
     self.locationManager = [[CLLocationManager alloc] init];
+    self.cepArray = [NSMutableArray new];
     self.locationManager.delegate = self;
     [self.locationManager startUpdatingLocation];
     [self.mapView setRegion:MKCoordinateRegionMake(self.locationManager.location.coordinate, MKCoordinateSpanMake(0.4, 0.4))];
-    [self loadBanks];
+
+
+
+
+
+    [self createCEPwithLatitude:41.811833 longitude:-87.707699 andName:@"Brighton Park Neighborhood Council"];
+    [self createCEPwithLatitude:41.822871 longitude:-87.625912 andName:@"Dawson Technical Institute"];
+    [self createCEPwithLatitude:41.885983 longitude:-87.626826 andName:@"Harold Washington College"];
+    [self createCEPwithLatitude:41.75059 longitude:-87.63619 andName:@"Neighborhood Housing Services"];
+    [self createCEPwithLatitude:41.845675 longitude:-87.684074 andName:@"Instituto del Progreso Latino"];
+    [self createCEPwithLatitude:41.750393 longitude:-87.653513 andName:@"Greater Auburn-Gresham Development Corporation"];
+    [self createCEPwithLatitude:41.964568 longitude:-87.658811 andName:@"Truman College"];
+
+    [self loadCEPS];
+
+
+
 }
 
-- (void)loadBanks
+- (void)createCEPwithLatitude:(CGFloat)latitude longitude:(CGFloat)longitude andName:(NSString *)name
+{
+    return;
+    PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:latitude
+                                                  longitude:longitude];
+
+    PFObject *place = [PFObject objectWithClassName:@"Place"];
+    [place setObject:name forKey:@"name"];
+    [place setObject:geoPoint forKey:@"location"];
+    [place saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        NSLog(@"succeed %@",name);
+    }];
+
+}
+
+- (void)loadCEPS
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Place"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        for (PFObject *place in objects) {
+            [self.cepArray addObject:place];
+            MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+            PFGeoPoint *geoPoint = [place objectForKey:@"location"];
+            point.coordinate = CLLocationCoordinate2DMake(geoPoint.latitude, geoPoint.longitude);
+            [self.mapView addAnnotation:point];
+        }
+    }];
+
+}
+
+- (void)load:(NSString *)search
 {
     MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
     request.region = self.mapView.region;
-    request.naturalLanguageQuery = @"bar";
+    request.naturalLanguageQuery = search;
     MKLocalSearch *searchBank = [[MKLocalSearch alloc] initWithRequest:request];
     [searchBank startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
         if (response.mapItems.count == 0) {
@@ -64,8 +114,8 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     CLLocation *location = locations.firstObject;
-        [self.mapView setRegion:MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.4, 0.4))];
-    [self loadBanks];
+        [self.mapView setRegion:MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.6, 0.6))];
+    [self load:@"bank"];
     [self.locationManager stopUpdatingLocation];
 
 }

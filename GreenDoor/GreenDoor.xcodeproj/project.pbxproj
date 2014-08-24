@@ -49,6 +49,7 @@
 		4285944A19A93B3500F7C74F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285944919A93B3500F7C74F /* MapViewController.m */; };
 		4285944D19A93B9600F7C74F /* BankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285944C19A93B9600F7C74F /* BankViewController.m */; };
 		4285944F19A93C7100F7C74F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4285944E19A93C7100F7C74F /* MapKit.framework */; };
+		4285945219A9844500F7C74F /* CEPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4285945119A9844500F7C74F /* CEPViewController.m */; };
 		E486168819A8FDBE008F08EC /* NewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168719A8FDBE008F08EC /* NewsFeedViewController.m */; };
 		E486168B19A8FE11008F08EC /* CalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168A19A8FE11008F08EC /* CalenderViewController.m */; };
 		E486168E19A9032D008F08EC /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E486168D19A9032D008F08EC /* AddViewController.m */; };
@@ -124,6 +125,8 @@
 		4285944B19A93B9600F7C74F /* BankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankViewController.h; sourceTree = "<group>"; };
 		4285944C19A93B9600F7C74F /* BankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankViewController.m; sourceTree = "<group>"; };
 		4285944E19A93C7100F7C74F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4285945019A9844500F7C74F /* CEPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPViewController.h; sourceTree = "<group>"; };
+		4285945119A9844500F7C74F /* CEPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPViewController.m; sourceTree = "<group>"; };
 		E486168619A8FDBE008F08EC /* NewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedViewController.h; sourceTree = "<group>"; };
 		E486168719A8FDBE008F08EC /* NewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedViewController.m; sourceTree = "<group>"; };
 		E486168919A8FE11008F08EC /* CalenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderViewController.h; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 				4285944619A9196600F7C74F /* TheCalendarViewController.m */,
 				4285944819A93B3500F7C74F /* MapViewController.h */,
 				4285944919A93B3500F7C74F /* MapViewController.m */,
+				4285945019A9844500F7C74F /* CEPViewController.h */,
+				4285945119A9844500F7C74F /* CEPViewController.m */,
 				4285944B19A93B9600F7C74F /* BankViewController.h */,
 				4285944C19A93B9600F7C74F /* BankViewController.m */,
 			);
@@ -414,6 +419,7 @@
 				4285944A19A93B3500F7C74F /* MapViewController.m in Sources */,
 				0BB956E919A90EEE003478D0 /* SignupViewController.m in Sources */,
 				E486168819A8FDBE008F08EC /* NewsFeedViewController.m in Sources */,
+				4285945219A9844500F7C74F /* CEPViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
