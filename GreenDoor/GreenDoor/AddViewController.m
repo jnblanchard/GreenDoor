@@ -38,6 +38,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"obj %@", self.object);
+    if (self.object) {
+        [self loadFromObject];
+    }
     self.theUser = [PFUser currentUser];
     self.validAmount = NO;
     self.validItem = NO;
@@ -64,6 +68,37 @@
 
     [self resetSwitchts];
     [self switchUtility:nil];
+}
+
+- (void)loadFromObject
+{
+    self.itemTextField.text = [self.object objectForKey:@"itemName"];
+    self.amountTextField.text = [self.object objectForKey:@"amount"];
+    self.date = [self.object objectForKey:@"date"];
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:[self.object objectForKey:@"date"]
+                                                          dateStyle:NSDateFormatterMediumStyle
+                                                          timeStyle:NSDateFormatterNoStyle];
+    [self.showDatePickerButton setTitle:dateString forState:UIControlStateNormal];
+    if ([self.object objectForKey:@"file"]) {
+        PFFile *file = [self.object objectForKey:@"file"];
+        [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            self.receiptImageView.image = [UIImage imageWithData:data];
+        }];
+    }
+    self.descriptionTextField.text = [self.object objectForKey:@"description"];
+    NSString *rate = [self.object objectForKey:@"rate"];
+    if ([rate isEqualToString:@"Once"]) {
+        self.rateSegmentedControl.selectedSegmentIndex = 0;
+    }
+    if ([rate isEqualToString:@"Weekly"]) {
+        self.rateSegmentedControl.selectedSegmentIndex = 1;
+    }
+    if ([rate isEqualToString:@"Monthly"]) {
+        self.rateSegmentedControl.selectedSegmentIndex = 2;
+    }
+    if ([rate isEqualToString:@"Yearly"]) {
+        self.rateSegmentedControl.selectedSegmentIndex = 3;
+    }
 }
 
 - (IBAction)showDatePicker:(id)sender

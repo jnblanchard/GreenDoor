@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface AddViewController : UIViewController
-
+@property PFObject *object;
 @end

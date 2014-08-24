@@ -7,6 +7,7 @@
 //
 
 #import "DetailReportViewController.h"
+#import "AddViewController.h"
 
 @interface DetailReportViewController ()
 
@@ -85,6 +86,15 @@
 
 - (IBAction)backButtonPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"detail"]) {
+        AddViewController *addVC = segue.destinationViewController;
+        addVC.object = self.object;
+    }
 }
 
 /*
