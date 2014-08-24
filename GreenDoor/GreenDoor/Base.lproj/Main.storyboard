@@ -605,6 +605,7 @@
                                 </state>
                                 <connections>
                                     <action selector="makeAppointment:" destination="tOa-EH-oK4" eventType="touchUpInside" id="XZ5-eW-uJM"/>
+                                    <action selector="makeCall:" destination="tOa-EH-oK4" eventType="touchUpInside" id="buM-uP-50B"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please provide any details or questions" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rBN-vX-lL2">
@@ -664,7 +665,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sh9-5X-4XB">
                                 <rect key="frame" x="120" y="345" width="81" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="530pmUnselected">
+                                <state key="normal" image="530pmSelected">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -674,7 +675,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEM-li-eTc">
                                 <rect key="frame" x="201" y="345" width="81" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="6pmUnselected">
+                                <state key="normal" image="6pmSelected">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -694,7 +695,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpL-g1-lPb">
                                 <rect key="frame" x="155" y="297" width="81" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="WednesdayUnselected">
+                                <state key="normal" image="WednesdaySelected">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1049,9 +1050,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="530pmUnselected" width="81" height="24"/>
+        <image name="530pmSelected" width="81" height="24"/>
         <image name="5pmSelected" width="81" height="24"/>
-        <image name="6pmUnselected" width="81" height="24"/>
+        <image name="6pmSelected" width="81" height="24"/>
         <image name="ActivityTabBar" width="25" height="25"/>
         <image name="AddButton" width="160" height="38"/>
         <image name="AnalysisTabBar" width="25" height="24"/>
@@ -1072,7 +1073,7 @@
         <image name="PaidButton" width="160" height="35"/>
         <image name="Transport" width="50" height="50"/>
         <image name="Utility" width="50" height="50"/>
-        <image name="WednesdayUnselected" width="81" height="24"/>
+        <image name="WednesdaySelected" width="81" height="24"/>
         <image name="receipt" width="128" height="128"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
